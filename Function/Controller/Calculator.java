@@ -8,13 +8,23 @@ import java.time.*;
 
 public class Calculator {
 
-	public static void TimerCalculator(int startHour, int startMinute ,int endHour,int endMinute) {
-		int totalEndHour,totalEndMinute;
+	public static void TimerCalculator(int arriveTimeHour,int arriveTimeMinute,int travelTimeHour, int travelTimeMinute,int preperationTimeMinute) {
+		int wakeUpHour,wakeUpMinute,negTime =0,staticMinuteTime = 60,test;
+
 		
-		totalEndHour = endHour-startHour;
+		wakeUpHour = arriveTimeHour - travelTimeHour;
 		
-		totalEndMinute = endMinute-startMinute;
-		System.out.println(totalEndHour+":"+totalEndMinute);
+		wakeUpMinute = arriveTimeMinute- travelTimeMinute;
+		
+		//Berechnung der preptime
+		
+		test = preperationTimeMinute % staticMinuteTime;
+		
+		
+		
+		
+		
+		
 		
 		//return in label (totalEndhour+":"+totalEndMinute);
 		
