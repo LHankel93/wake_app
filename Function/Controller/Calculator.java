@@ -36,15 +36,7 @@ public class Calculator {
 		
 		
 		
-		System.out.println(totalTimeHour+" "+ totalTimeMinute);
 		
-		//Berechnung der preptime
-		
-		
-		
-		
-		
-		//return in label (totalEndhour+":"+totalEndMinute);
 		
 	}
 }
