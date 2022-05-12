@@ -20,13 +20,9 @@ public class Wecker {
 	private int weckzeitStunden;
 	private int weckzeitMinuten;
 	
-	
-	public Wecker() {
-		
-	}
 
 	/**
-	 * 
+	 * Standard Konstruktor der Klasse mit allen Variablen
 	 * @author Lorenz Hankel
 	 * @param name Name Des Weckers
 	 * @param ankunftStunden Stunden der Uhrzeit der geplanten Ankuft als int.
@@ -53,6 +49,9 @@ public class Wecker {
 		this.vorbereitungMinuten = vorbereitungMinuten;
 		this.zielOrt = zielOrt;
 		this.startOrt = startOrt;
+		if(weckzeitStunden ) {
+			
+		}
 		this.weckzeitStunden = weckzeitStunden;
 		this.weckzeitMinuten = weckzeitMinuten;
 	}
