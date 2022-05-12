@@ -35,7 +35,7 @@ public class Calculator {
 		totalTimeHour = arriveTimeHour-totalTimeHour;
 		
 		
-		
+		System.out.println(totalTimeHour+ ":"+totalTimeMinute);
 		
 		
 	}
