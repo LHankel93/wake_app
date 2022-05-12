@@ -33,6 +33,8 @@ public class Hauptansicht extends JFrame {
 	private JTextField txtStunden;
 	private JTextField textMinutenUrzeit;
 	private JTextField text_StundeUhrzeit;
+	private JTextField text_StundenFahrzeit;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -112,15 +114,14 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_Fertigmachzeit);
 		
 		JLabel label_Wohnort = new JLabel("Wohnort:");
-		label_Wohnort.setFont(new Font("Arial", Font.PLAIN, 12));
-		sl_panel.putConstraint(SpringLayout.NORTH, label_Wohnort, 25, SpringLayout.SOUTH, label_Fertigmachzeit);
 		sl_panel.putConstraint(SpringLayout.WEST, label_Wohnort, 10, SpringLayout.WEST, panel);
+		label_Wohnort.setFont(new Font("Arial", Font.PLAIN, 12));
 		panel.add(label_Wohnort);
 		
 		JLabel label_Zielort = new JLabel("Zielort:");
-		sl_panel.putConstraint(SpringLayout.WEST, label_Zielort, 8, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, label_Wohnort, -13, SpringLayout.NORTH, label_Zielort);
+		sl_panel.putConstraint(SpringLayout.WEST, label_Zielort, 10, SpringLayout.WEST, panel);
 		label_Zielort.setFont(new Font("Arial", Font.PLAIN, 12));
-		sl_panel.putConstraint(SpringLayout.NORTH, label_Zielort, 35, SpringLayout.SOUTH, label_Wohnort);
 		panel.add(label_Zielort);
 		
 		txt_ZeitInMinuten = new JTextField();
@@ -133,25 +134,26 @@ public class Hauptansicht extends JFrame {
 		txt_ZeitInMinuten.setColumns(10);
 		
 		txt_Adresse = new JTextField();
-		sl_panel.putConstraint(SpringLayout.EAST, txt_Adresse, -69, SpringLayout.EAST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, txt_Adresse, 0, SpringLayout.SOUTH, label_Wohnort);
 		txt_Adresse.setFont(new Font("Arial", Font.PLAIN, 12));
 		txt_Adresse.setForeground(new Color(192, 192, 192));
 		txt_Adresse.setText("Adresse");
-		sl_panel.putConstraint(SpringLayout.NORTH, txt_Adresse, 0, SpringLayout.NORTH, label_Wohnort);
 		panel.add(txt_Adresse);
 		txt_Adresse.setColumns(10);
 		
 		txtAdresse = new JTextField();
-		sl_panel.putConstraint(SpringLayout.EAST, txtAdresse, -69, SpringLayout.EAST, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, txt_Adresse, 0, SpringLayout.EAST, txtAdresse);
+		sl_panel.putConstraint(SpringLayout.NORTH, txtAdresse, -3, SpringLayout.NORTH, label_Zielort);
+		sl_panel.putConstraint(SpringLayout.EAST, txtAdresse, -58, SpringLayout.EAST, panel);
 		txtAdresse.setForeground(new Color(192, 192, 192));
 		txtAdresse.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtAdresse.setText("Adresse");
-		sl_panel.putConstraint(SpringLayout.NORTH, txtAdresse, 0, SpringLayout.NORTH, label_Zielort);
 		panel.add(txtAdresse);
 		txtAdresse.setColumns(10);
 		
 		JLabel label_Bennenung = new JLabel("Bennenung");
-		sl_panel.putConstraint(SpringLayout.NORTH, label_Bennenung, 28, SpringLayout.SOUTH, label_Zielort);
+		sl_panel.putConstraint(SpringLayout.NORTH, label_Bennenung, 298, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, label_Zielort, -6, SpringLayout.NORTH, label_Bennenung);
 		sl_panel.putConstraint(SpringLayout.WEST, label_Bennenung, 8, SpringLayout.WEST, panel);
 		label_Bennenung.setFont(new Font("Arial", Font.PLAIN, 14));
 		label_Bennenung.setForeground(new Color(128, 128, 128));
@@ -218,9 +220,9 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_zwischen_1);
 		
 		textMinutenUrzeit = new JTextField();
-		sl_panel.putConstraint(SpringLayout.WEST, textMinutenUrzeit, 330, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, textMinutenUrzeit, 0, SpringLayout.SOUTH, label_Ankunftszeit);
-		sl_panel.putConstraint(SpringLayout.EAST, textMinutenUrzeit, 0, SpringLayout.EAST, label_WackeApp);
+		sl_panel.putConstraint(SpringLayout.NORTH, textMinutenUrzeit, -3, SpringLayout.NORTH, label_Ankunftszeit);
+		sl_panel.putConstraint(SpringLayout.WEST, textMinutenUrzeit, 0, SpringLayout.WEST, txt_ZeitInMinuten);
+		sl_panel.putConstraint(SpringLayout.EAST, textMinutenUrzeit, -6, SpringLayout.EAST, label_WackeApp);
 		textMinutenUrzeit.setText("Minuten");
 		textMinutenUrzeit.setForeground(Color.LIGHT_GRAY);
 		textMinutenUrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -229,12 +231,45 @@ public class Hauptansicht extends JFrame {
 		
 		text_StundeUhrzeit = new JTextField();
 		sl_panel.putConstraint(SpringLayout.NORTH, text_StundeUhrzeit, -3, SpringLayout.NORTH, label_Ankunftszeit);
-		sl_panel.putConstraint(SpringLayout.WEST, text_StundeUhrzeit, -12, SpringLayout.WEST, txtStunden);
+		sl_panel.putConstraint(SpringLayout.WEST, text_StundeUhrzeit, 0, SpringLayout.WEST, txtStunden);
 		sl_panel.putConstraint(SpringLayout.EAST, text_StundeUhrzeit, 0, SpringLayout.EAST, txtStunden);
 		text_StundeUhrzeit.setText("Stunden");
 		text_StundeUhrzeit.setForeground(Color.LIGHT_GRAY);
 		text_StundeUhrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
 		text_StundeUhrzeit.setColumns(10);
 		panel.add(text_StundeUhrzeit);
+		
+		JLabel lblNewLabel_2 = new JLabel("Fahrzeit:");
+		lblNewLabel_2.setFont(new Font("Arial", Font.PLAIN, 12));
+		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 25, SpringLayout.SOUTH, label_Fertigmachzeit);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2, 0, SpringLayout.WEST, label_Ankunftszeit);
+		panel.add(lblNewLabel_2);
+		
+		text_StundenFahrzeit = new JTextField();
+		sl_panel.putConstraint(SpringLayout.NORTH, text_StundenFahrzeit, 0, SpringLayout.NORTH, lblNewLabel_2);
+		sl_panel.putConstraint(SpringLayout.WEST, text_StundenFahrzeit, 0, SpringLayout.WEST, txtStunden);
+		sl_panel.putConstraint(SpringLayout.EAST, text_StundenFahrzeit, -93, SpringLayout.EAST, panel);
+		text_StundenFahrzeit.setText("Stunden");
+		text_StundenFahrzeit.setForeground(Color.LIGHT_GRAY);
+		text_StundenFahrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
+		text_StundenFahrzeit.setColumns(10);
+		panel.add(text_StundenFahrzeit);
+		
+		textField = new JTextField();
+		sl_panel.putConstraint(SpringLayout.NORTH, textField, 0, SpringLayout.NORTH, lblNewLabel_2);
+		sl_panel.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.WEST, txt_ZeitInMinuten);
+		sl_panel.putConstraint(SpringLayout.EAST, textField, -23, SpringLayout.EAST, panel);
+		textField.setText("Minuten");
+		textField.setForeground(Color.LIGHT_GRAY);
+		textField.setFont(new Font("Arial", Font.PLAIN, 12));
+		textField.setColumns(10);
+		panel.add(textField);
+		
+		JLabel label_zwischen_2 = new JLabel(":");
+		sl_panel.putConstraint(SpringLayout.NORTH, label_zwischen_2, 0, SpringLayout.NORTH, lblNewLabel_2);
+		sl_panel.putConstraint(SpringLayout.WEST, label_zwischen_2, 0, SpringLayout.WEST, label_zwischen);
+		label_zwischen_2.setForeground(Color.BLACK);
+		label_zwischen_2.setFont(new Font("Arial", Font.PLAIN, 12));
+		panel.add(label_zwischen_2);
 	}
 }
