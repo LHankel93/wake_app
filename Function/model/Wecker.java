@@ -49,14 +49,9 @@ public class Wecker {
 		this.vorbereitungMinuten = vorbereitungMinuten;
 		this.zielOrt = zielOrt;
 		this.startOrt = startOrt;
-<<<<<<< Upstream, based on 1d78449857d95b3355847a9612964b6019a4700b
-		if(weckzeitStunden ) {
-			
-=======
 		if(weckzeitStunden == null || weckzeitMinuten == null) {
 			this.weckzeitMinuten = 0;
 			this.weckzeitStunden = 0;
->>>>>>> d4210d9 merge main
 		}
 		this.weckzeitStunden = weckzeitStunden;
 		this.weckzeitMinuten = weckzeitMinuten;
