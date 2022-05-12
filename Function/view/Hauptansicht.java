@@ -27,11 +27,12 @@ import javax.swing.JRadioButton;
 public class Hauptansicht extends JFrame {  
 
 	private JPanel contentPane;
-	private JTextField txt_Uhrzeit;
 	private JTextField txt_ZeitInMinuten;
 	private JTextField txt_Adresse;
 	private JTextField txtAdresse;
 	private JTextField txtStunden;
+	private JTextField textMinutenUrzeit;
+	private JTextField text_StundeUhrzeit;
 
 	/**
 	 * Launch the application.
@@ -122,15 +123,6 @@ public class Hauptansicht extends JFrame {
 		sl_panel.putConstraint(SpringLayout.NORTH, label_Zielort, 35, SpringLayout.SOUTH, label_Wohnort);
 		panel.add(label_Zielort);
 		
-		txt_Uhrzeit = new JTextField();
-		txt_Uhrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
-		txt_Uhrzeit.setForeground(new Color(192, 192, 192));
-		txt_Uhrzeit.setText("Uhrzeit");
-		sl_panel.putConstraint(SpringLayout.SOUTH, txt_Uhrzeit, 0, SpringLayout.SOUTH, label_Ankunftszeit);
-		sl_panel.putConstraint(SpringLayout.EAST, txt_Uhrzeit, -69, SpringLayout.EAST, panel);
-		panel.add(txt_Uhrzeit);
-		txt_Uhrzeit.setColumns(10);
-		
 		txt_ZeitInMinuten = new JTextField();
 		sl_panel.putConstraint(SpringLayout.NORTH, txt_ZeitInMinuten, -3, SpringLayout.NORTH, label_Fertigmachzeit);
 		sl_panel.putConstraint(SpringLayout.EAST, txt_ZeitInMinuten, -4, SpringLayout.EAST, label_WackeApp);
@@ -141,20 +133,20 @@ public class Hauptansicht extends JFrame {
 		txt_ZeitInMinuten.setColumns(10);
 		
 		txt_Adresse = new JTextField();
+		sl_panel.putConstraint(SpringLayout.EAST, txt_Adresse, -69, SpringLayout.EAST, panel);
 		txt_Adresse.setFont(new Font("Arial", Font.PLAIN, 12));
 		txt_Adresse.setForeground(new Color(192, 192, 192));
 		txt_Adresse.setText("Adresse");
 		sl_panel.putConstraint(SpringLayout.NORTH, txt_Adresse, 0, SpringLayout.NORTH, label_Wohnort);
-		sl_panel.putConstraint(SpringLayout.EAST, txt_Adresse, 0, SpringLayout.EAST, txt_Uhrzeit);
 		panel.add(txt_Adresse);
 		txt_Adresse.setColumns(10);
 		
 		txtAdresse = new JTextField();
+		sl_panel.putConstraint(SpringLayout.EAST, txtAdresse, -69, SpringLayout.EAST, panel);
 		txtAdresse.setForeground(new Color(192, 192, 192));
 		txtAdresse.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtAdresse.setText("Adresse");
 		sl_panel.putConstraint(SpringLayout.NORTH, txtAdresse, 0, SpringLayout.NORTH, label_Zielort);
-		sl_panel.putConstraint(SpringLayout.EAST, txtAdresse, 0, SpringLayout.EAST, txt_Uhrzeit);
 		panel.add(txtAdresse);
 		txtAdresse.setColumns(10);
 		
@@ -217,5 +209,32 @@ public class Hauptansicht extends JFrame {
 		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 24));
 		lblNewLabel_1.setForeground(new Color(128, 128, 128));
 		panel.add(lblNewLabel_1);
+		
+		JLabel label_zwischen_1 = new JLabel(":");
+		sl_panel.putConstraint(SpringLayout.WEST, label_zwischen_1, 0, SpringLayout.WEST, label_zwischen);
+		sl_panel.putConstraint(SpringLayout.SOUTH, label_zwischen_1, 0, SpringLayout.SOUTH, label_Ankunftszeit);
+		label_zwischen_1.setForeground(Color.BLACK);
+		label_zwischen_1.setFont(new Font("Arial", Font.PLAIN, 12));
+		panel.add(label_zwischen_1);
+		
+		textMinutenUrzeit = new JTextField();
+		sl_panel.putConstraint(SpringLayout.WEST, textMinutenUrzeit, 330, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, textMinutenUrzeit, 0, SpringLayout.SOUTH, label_Ankunftszeit);
+		sl_panel.putConstraint(SpringLayout.EAST, textMinutenUrzeit, 0, SpringLayout.EAST, label_WackeApp);
+		textMinutenUrzeit.setText("Minuten");
+		textMinutenUrzeit.setForeground(Color.LIGHT_GRAY);
+		textMinutenUrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
+		textMinutenUrzeit.setColumns(10);
+		panel.add(textMinutenUrzeit);
+		
+		text_StundeUhrzeit = new JTextField();
+		sl_panel.putConstraint(SpringLayout.NORTH, text_StundeUhrzeit, -3, SpringLayout.NORTH, label_Ankunftszeit);
+		sl_panel.putConstraint(SpringLayout.WEST, text_StundeUhrzeit, -12, SpringLayout.WEST, txtStunden);
+		sl_panel.putConstraint(SpringLayout.EAST, text_StundeUhrzeit, 0, SpringLayout.EAST, txtStunden);
+		text_StundeUhrzeit.setText("Stunden");
+		text_StundeUhrzeit.setForeground(Color.LIGHT_GRAY);
+		text_StundeUhrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
+		text_StundeUhrzeit.setColumns(10);
+		panel.add(text_StundeUhrzeit);
 	}
 }
