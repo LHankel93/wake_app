@@ -78,6 +78,7 @@ public class Hauptansicht extends JFrame {
 		panel.setLayout(sl_panel);
 		
 		JButton button_Berechnen = new JButton("Berechnen");
+		button_Berechnen.setForeground(new Color(255, 255, 255));
 		sl_panel.putConstraint(SpringLayout.WEST, button_Berechnen, 6, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, button_Berechnen, -5, SpringLayout.EAST, panel);
 		button_Berechnen.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -88,23 +89,13 @@ public class Hauptansicht extends JFrame {
 		});
 		panel.add(button_Berechnen);
 		
-		JLabel label_WackeApp = new JLabel("WackeApp");
-		sl_panel.putConstraint(SpringLayout.NORTH, label_WackeApp, 0, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, label_WackeApp, 0, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, label_WackeApp, -500, SpringLayout.SOUTH, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, label_WackeApp, -18, SpringLayout.EAST, panel);
-		label_WackeApp.setFont(new Font("Arial", Font.PLAIN, 15));
-		label_WackeApp.setBackground(new Color(138, 43, 226));
-		panel.add(label_WackeApp);
-		
 		JLabel label_FetWakeApp = new JLabel("WakeApp");
-		sl_panel.putConstraint(SpringLayout.NORTH, label_FetWakeApp, 6, SpringLayout.SOUTH, label_WackeApp);
+		sl_panel.putConstraint(SpringLayout.NORTH, label_FetWakeApp, 45, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, label_FetWakeApp, 157, SpringLayout.WEST, panel);
 		label_FetWakeApp.setFont(new Font("Arial", Font.BOLD, 20));
 		panel.add(label_FetWakeApp);
 		
 		JLabel label_Ankunftszeit = new JLabel("Ankunftszeit:");
-		sl_panel.putConstraint(SpringLayout.NORTH, label_Ankunftszeit, 83, SpringLayout.SOUTH, label_WackeApp);
 		label_Ankunftszeit.setFont(new Font("Arial", Font.PLAIN, 12));
 		sl_panel.putConstraint(SpringLayout.WEST, label_Ankunftszeit, 10, SpringLayout.WEST, panel);
 		panel.add(label_Ankunftszeit);
@@ -121,7 +112,6 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_Wohnort);
 		
 		JLabel label_Zielort = new JLabel("Zielort:");
-		sl_panel.putConstraint(SpringLayout.SOUTH, label_Wohnort, -16, SpringLayout.NORTH, label_Zielort);
 		sl_panel.putConstraint(SpringLayout.NORTH, label_Zielort, 278, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, label_Zielort, 10, SpringLayout.WEST, panel);
 		label_Zielort.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -129,7 +119,7 @@ public class Hauptansicht extends JFrame {
 		
 		txt_ZeitInMinuten = new JTextField();
 		sl_panel.putConstraint(SpringLayout.NORTH, txt_ZeitInMinuten, -3, SpringLayout.NORTH, label_Fertigmachzeit);
-		sl_panel.putConstraint(SpringLayout.EAST, txt_ZeitInMinuten, -4, SpringLayout.EAST, label_WackeApp);
+		sl_panel.putConstraint(SpringLayout.EAST, txt_ZeitInMinuten, -22, SpringLayout.EAST, panel);
 		txt_ZeitInMinuten.setFont(new Font("Arial", Font.PLAIN, 12));
 		txt_ZeitInMinuten.setForeground(new Color(192, 192, 192));
 		txt_ZeitInMinuten.setText("Minuten");
@@ -137,7 +127,7 @@ public class Hauptansicht extends JFrame {
 		txt_ZeitInMinuten.setColumns(10);
 		
 		txt_Adresse = new JTextField();
-		sl_panel.putConstraint(SpringLayout.NORTH, txt_Adresse, -3, SpringLayout.NORTH, label_Wohnort);
+		sl_panel.putConstraint(SpringLayout.NORTH, label_Wohnort, 3, SpringLayout.NORTH, txt_Adresse);
 		txt_Adresse.setFont(new Font("Arial", Font.PLAIN, 12));
 		txt_Adresse.setForeground(new Color(192, 192, 192));
 		txt_Adresse.setText("Adresse");
@@ -145,6 +135,7 @@ public class Hauptansicht extends JFrame {
 		txt_Adresse.setColumns(10);
 		
 		txtAdresse = new JTextField();
+		sl_panel.putConstraint(SpringLayout.SOUTH, txt_Adresse, -10, SpringLayout.NORTH, txtAdresse);
 		sl_panel.putConstraint(SpringLayout.EAST, txtAdresse, -40, SpringLayout.EAST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, txt_Adresse, 0, SpringLayout.EAST, txtAdresse);
 		sl_panel.putConstraint(SpringLayout.NORTH, txtAdresse, -3, SpringLayout.NORTH, label_Zielort);
@@ -216,8 +207,8 @@ public class Hauptansicht extends JFrame {
 		
 		textMinutenUrzeit = new JTextField();
 		sl_panel.putConstraint(SpringLayout.NORTH, textMinutenUrzeit, -3, SpringLayout.NORTH, label_Ankunftszeit);
-		sl_panel.putConstraint(SpringLayout.WEST, textMinutenUrzeit, 0, SpringLayout.WEST, txt_ZeitInMinuten);
-		sl_panel.putConstraint(SpringLayout.EAST, textMinutenUrzeit, -6, SpringLayout.EAST, label_WackeApp);
+		sl_panel.putConstraint(SpringLayout.WEST, textMinutenUrzeit, 6, SpringLayout.EAST, label_zwischen_1);
+		sl_panel.putConstraint(SpringLayout.EAST, textMinutenUrzeit, -24, SpringLayout.EAST, panel);
 		textMinutenUrzeit.setText("Minuten");
 		textMinutenUrzeit.setForeground(Color.LIGHT_GRAY);
 		textMinutenUrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -268,11 +259,12 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_zwischen_2);
 		
 		text_Name = new JTextField();
+		sl_panel.putConstraint(SpringLayout.NORTH, label_Ankunftszeit, 19, SpringLayout.SOUTH, text_Name);
 		sl_panel.putConstraint(SpringLayout.NORTH, text_Name, 6, SpringLayout.SOUTH, label_FetWakeApp);
 		sl_panel.putConstraint(SpringLayout.WEST, text_Name, 0, SpringLayout.WEST, label_Ankunftszeit);
 		text_Name.setFont(new Font("Arial", Font.BOLD, 18));
 		text_Name.setForeground(new Color(192, 192, 192));
-		text_Name.setText("Weckker Name");
+		text_Name.setText("Wecker Name");
 		panel.add(text_Name);
 		text_Name.setColumns(10);
 		
@@ -284,10 +276,22 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_Vortbewegung);
 		
 		JButton btnWeckerHinzufgen = new JButton("Wecker hinzufügen");
+		btnWeckerHinzufgen.setForeground(new Color(255, 255, 255));
 		btnWeckerHinzufgen.setBackground(new Color(138, 43, 226));
 		sl_panel.putConstraint(SpringLayout.NORTH, btnWeckerHinzufgen, 0, SpringLayout.NORTH, lblNewLabel_1);
 		sl_panel.putConstraint(SpringLayout.EAST, btnWeckerHinzufgen, -10, SpringLayout.EAST, panel);
 		btnWeckerHinzufgen.setFont(new Font("Arial", Font.PLAIN, 12));
 		panel.add(btnWeckerHinzufgen);
+		
+		JButton btnWeckapp = new JButton("WeckApp");
+		btnWeckapp.setEnabled(false);
+		sl_panel.putConstraint(SpringLayout.NORTH, btnWeckapp, 0, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, btnWeckapp, 0, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, btnWeckapp, 2, SpringLayout.EAST, panel);
+		btnWeckapp.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnWeckapp.setBackground(new Color(138, 43, 226));
+		btnWeckapp.setForeground(new Color(255, 255, 255));
+		btnWeckapp.setHorizontalAlignment(SwingConstants.LEFT);
+		panel.add(btnWeckapp);
 	}
 }
