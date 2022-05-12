@@ -78,7 +78,8 @@ public class Hauptansicht extends JFrame {
 		panel.setLayout(sl_panel);
 		
 		JButton button_Berechnen = new JButton("Berechnen");
-		sl_panel.putConstraint(SpringLayout.WEST, button_Berechnen, 143, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, button_Berechnen, 6, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, button_Berechnen, -5, SpringLayout.EAST, panel);
 		button_Berechnen.setFont(new Font("Arial", Font.PLAIN, 12));
 		button_Berechnen.setBackground(new Color(138, 43, 226));
 		button_Berechnen.addActionListener(new ActionListener() {
@@ -281,5 +282,12 @@ public class Hauptansicht extends JFrame {
 		label_Vortbewegung.setFont(new Font("Arial", Font.PLAIN, 14));
 		sl_panel.putConstraint(SpringLayout.SOUTH, label_Vortbewegung, -12, SpringLayout.NORTH, rdbtnpnv);
 		panel.add(label_Vortbewegung);
+		
+		JButton btnWeckerHinzufgen = new JButton("Wecker hinzufügen");
+		btnWeckerHinzufgen.setBackground(new Color(138, 43, 226));
+		sl_panel.putConstraint(SpringLayout.NORTH, btnWeckerHinzufgen, 0, SpringLayout.NORTH, lblNewLabel_1);
+		sl_panel.putConstraint(SpringLayout.EAST, btnWeckerHinzufgen, -10, SpringLayout.EAST, panel);
+		btnWeckerHinzufgen.setFont(new Font("Arial", Font.PLAIN, 12));
+		panel.add(btnWeckerHinzufgen);
 	}
 }
