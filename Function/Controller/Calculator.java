@@ -1,5 +1,6 @@
 package Controller;
 import java.time.*;
+import view.Hauptansicht;
 /**
  * 
  * @author Demir
@@ -8,10 +9,16 @@ import java.time.*;
 
 public class Calculator {
 
-	public static void TimerCalculator(int arriveTimeHour,int arriveTimeMinute,int travelTimeHour, int travelTimeMinute,int preperationTimeHour,int preperationTimeMinute) {
+	public static void TimerCalculator() {
 	
+		Hauptansicht mainWindow = new Hauptansicht();
+		int arriveTimeHour = Integer.parseInt(mainWindow.text_StundeUhrzeit.getText());
+		int arriveTimeMinute = Integer.parseInt(mainWindow.textMinutenUrzeit.getText());
+		int preperationTimeHour = Integer.parseInt(mainWindow.txtStunden.getText());
+		int preperationTimeMinute = Integer.parseInt(mainWindow.txt_ZeitInMinuten.getText());
+		int travelTimeMinute=Integer.parseInt(mainWindow.Text_MinutenFahrzeit.getText());
+		int travelTimeHour = Integer.parseInt(mainWindow.text_StundenFahrzeit.getText());
 
-		
 	
 		int totalTimeHour =travelTimeHour+ preperationTimeHour;
 		int totalTimeMinute = travelTimeMinute+ preperationTimeMinute;
@@ -35,7 +42,9 @@ public class Calculator {
 		totalTimeHour = arriveTimeHour-totalTimeHour;
 		
 		
-		System.out.println(totalTimeHour+ ":"+totalTimeMinute);
+		//System.out.println(totalTimeHour+ ":"+totalTimeMinute);
+		
+	
 		
 		
 	}

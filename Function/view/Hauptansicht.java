@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.Calculator;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -27,15 +30,16 @@ import javax.swing.JRadioButton;
 public class Hauptansicht extends JFrame {  
 
 	private JPanel contentPane;
-	private JTextField txt_ZeitInMinuten;
-	private JTextField txt_Adresse;
-	private JTextField txtAdresse;
-	private JTextField txtStunden;
-	private JTextField textMinutenUrzeit;
-	private JTextField text_StundeUhrzeit;
-	private JTextField text_StundenFahrzeit;
-	private JTextField textField;
-	private JTextField text_Name;
+	public JTextField txt_ZeitInMinuten;
+	public JTextField txt_Adresse;
+	public JTextField txtAdresse;
+	public JTextField txtStunden;
+	public JTextField textMinutenUrzeit;
+	public JTextField text_StundeUhrzeit;
+    public JTextField text_StundenFahrzeit;
+	public JTextField Text_MinutenFahrzeit;
+	public JTextField text_Name;
+	public JTextField WakeUpTimer;
 
 	/**
 	 * Launch the application.
@@ -82,11 +86,7 @@ public class Hauptansicht extends JFrame {
 		sl_panel.putConstraint(SpringLayout.WEST, button_Berechnen, 6, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, button_Berechnen, -5, SpringLayout.EAST, panel);
 		button_Berechnen.setFont(new Font("Arial", Font.PLAIN, 12));
-		button_Berechnen.setBackground(new Color(138, 43, 226));
-		button_Berechnen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		button_Berechnen.setBackground(new Color(138, 43, 226));		
 		panel.add(button_Berechnen);
 		
 		JLabel label_FetWakeApp = new JLabel("WakeApp");
@@ -240,15 +240,15 @@ public class Hauptansicht extends JFrame {
 		text_StundenFahrzeit.setColumns(10);
 		panel.add(text_StundenFahrzeit);
 		
-		textField = new JTextField();
-		sl_panel.putConstraint(SpringLayout.NORTH, textField, 0, SpringLayout.NORTH, lblNewLabel_2);
-		sl_panel.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.WEST, txt_ZeitInMinuten);
-		sl_panel.putConstraint(SpringLayout.EAST, textField, -23, SpringLayout.EAST, panel);
-		textField.setText("Minuten");
-		textField.setForeground(Color.LIGHT_GRAY);
-		textField.setFont(new Font("Arial", Font.PLAIN, 12));
-		textField.setColumns(10);
-		panel.add(textField);
+		Text_MinutenFahrzeit = new JTextField();
+		sl_panel.putConstraint(SpringLayout.NORTH, Text_MinutenFahrzeit, 0, SpringLayout.NORTH, lblNewLabel_2);
+		sl_panel.putConstraint(SpringLayout.WEST, Text_MinutenFahrzeit, 0, SpringLayout.WEST, txt_ZeitInMinuten);
+		sl_panel.putConstraint(SpringLayout.EAST, Text_MinutenFahrzeit, -23, SpringLayout.EAST, panel);
+		Text_MinutenFahrzeit.setText("Minuten");
+		Text_MinutenFahrzeit.setForeground(Color.LIGHT_GRAY);
+		Text_MinutenFahrzeit.setFont(new Font("Arial", Font.PLAIN, 12));
+		Text_MinutenFahrzeit.setColumns(10);
+		panel.add(Text_MinutenFahrzeit);
 		
 		JLabel label_zwischen_2 = new JLabel(":");
 		sl_panel.putConstraint(SpringLayout.NORTH, label_zwischen_2, 0, SpringLayout.NORTH, lblNewLabel_2);
@@ -293,5 +293,14 @@ public class Hauptansicht extends JFrame {
 		btnWeckapp.setForeground(new Color(255, 255, 255));
 		btnWeckapp.setHorizontalAlignment(SwingConstants.LEFT);
 		panel.add(btnWeckapp);
+		
+		WakeUpTimer = new JTextField();
+		sl_panel.putConstraint(SpringLayout.NORTH, WakeUpTimer, 6, SpringLayout.SOUTH, txtAdresse);
+		sl_panel.putConstraint(SpringLayout.EAST, WakeUpTimer, -10, SpringLayout.EAST, txtAdresse);
+		WakeUpTimer.setText("WakeUp");
+		WakeUpTimer.setForeground(Color.LIGHT_GRAY);
+		WakeUpTimer.setFont(new Font("Arial", Font.PLAIN, 12));
+		WakeUpTimer.setColumns(10);
+		panel.add(WakeUpTimer);
 	}
 }
