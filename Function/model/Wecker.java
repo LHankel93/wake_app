@@ -37,8 +37,8 @@ public class Wecker {
 	 * @param weckzeitMinuten Minuten der Uhrzeit der berechneten Weckzeit als int.
 	 */
 	public Wecker(String name, int ankunftStunden, int ankunftMinuten, int fahrzeitStunden, int fahrzeitMinuten,
-			int vorbereitungStunden, int vorbereitungMinuten, String zielOrt, String startOrt, int weckzeitStunden,
-			int weckzeitMinuten) {
+			int vorbereitungStunden, int vorbereitungMinuten, String zielOrt, String startOrt, Integer weckzeitStunden,
+			Integer weckzeitMinuten) {
 		super();
 		this.name = name;
 		this.ankunftStunden = ankunftStunden;
@@ -49,8 +49,14 @@ public class Wecker {
 		this.vorbereitungMinuten = vorbereitungMinuten;
 		this.zielOrt = zielOrt;
 		this.startOrt = startOrt;
+<<<<<<< Upstream, based on 1d78449857d95b3355847a9612964b6019a4700b
 		if(weckzeitStunden ) {
 			
+=======
+		if(weckzeitStunden == null || weckzeitMinuten == null) {
+			this.weckzeitMinuten = 0;
+			this.weckzeitStunden = 0;
+>>>>>>> d4210d9 merge main
 		}
 		this.weckzeitStunden = weckzeitStunden;
 		this.weckzeitMinuten = weckzeitMinuten;
