@@ -116,13 +116,13 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_Fertigmachzeit);
 		
 		JLabel label_Wohnort = new JLabel("Wohnort:");
-		sl_panel.putConstraint(SpringLayout.WEST, label_Wohnort, 10, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, label_Wohnort, 0, SpringLayout.WEST, button_Berechnen);
 		label_Wohnort.setFont(new Font("Arial", Font.PLAIN, 12));
 		panel.add(label_Wohnort);
 		
 		JLabel label_Zielort = new JLabel("Zielort:");
+		sl_panel.putConstraint(SpringLayout.SOUTH, label_Wohnort, -16, SpringLayout.NORTH, label_Zielort);
 		sl_panel.putConstraint(SpringLayout.NORTH, label_Zielort, 278, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, label_Wohnort, -13, SpringLayout.NORTH, label_Zielort);
 		sl_panel.putConstraint(SpringLayout.WEST, label_Zielort, 10, SpringLayout.WEST, panel);
 		label_Zielort.setFont(new Font("Arial", Font.PLAIN, 12));
 		panel.add(label_Zielort);
@@ -137,7 +137,7 @@ public class Hauptansicht extends JFrame {
 		txt_ZeitInMinuten.setColumns(10);
 		
 		txt_Adresse = new JTextField();
-		sl_panel.putConstraint(SpringLayout.SOUTH, txt_Adresse, 0, SpringLayout.SOUTH, label_Wohnort);
+		sl_panel.putConstraint(SpringLayout.NORTH, txt_Adresse, -3, SpringLayout.NORTH, label_Wohnort);
 		txt_Adresse.setFont(new Font("Arial", Font.PLAIN, 12));
 		txt_Adresse.setForeground(new Color(192, 192, 192));
 		txt_Adresse.setText("Adresse");
@@ -145,9 +145,9 @@ public class Hauptansicht extends JFrame {
 		txt_Adresse.setColumns(10);
 		
 		txtAdresse = new JTextField();
+		sl_panel.putConstraint(SpringLayout.EAST, txtAdresse, -40, SpringLayout.EAST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, txt_Adresse, 0, SpringLayout.EAST, txtAdresse);
 		sl_panel.putConstraint(SpringLayout.NORTH, txtAdresse, -3, SpringLayout.NORTH, label_Zielort);
-		sl_panel.putConstraint(SpringLayout.EAST, txtAdresse, -58, SpringLayout.EAST, panel);
 		txtAdresse.setForeground(new Color(192, 192, 192));
 		txtAdresse.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtAdresse.setText("Adresse");
@@ -277,8 +277,8 @@ public class Hauptansicht extends JFrame {
 		text_Name.setColumns(10);
 		
 		JLabel label_Vortbewegung = new JLabel("Vortbewegung");
+		sl_panel.putConstraint(SpringLayout.WEST, label_Vortbewegung, 9, SpringLayout.WEST, panel);
 		label_Vortbewegung.setForeground(new Color(128, 128, 128));
-		sl_panel.putConstraint(SpringLayout.EAST, label_Vortbewegung, 43, SpringLayout.EAST, label_Wohnort);
 		label_Vortbewegung.setFont(new Font("Arial", Font.PLAIN, 14));
 		sl_panel.putConstraint(SpringLayout.SOUTH, label_Vortbewegung, -12, SpringLayout.NORTH, rdbtnpnv);
 		panel.add(label_Vortbewegung);
