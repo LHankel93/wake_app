@@ -8,7 +8,7 @@ public class newMain {
 		//Die methode zum berechnen der benötigten Zeit
 		Calculator.TimerCalculator(arriveTimeHour, arriveTimeMinute,travelTimeHour,travelTimeMinute,preperationTimeHour,preperationTimeMinute);
 	}
-
+ 
 	
 
 }
