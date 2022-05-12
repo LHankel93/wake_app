@@ -34,7 +34,7 @@ public class Calculator {
 		totalTimeMinute = arriveTimeMinute-totalTimeMinute;
 		
 		if(totalTimeMinute< 0) {
-			totalTimeHour++;
+			addTime++;
 			totalTimeMinute = staticTime-(-totalTimeMinute);
 		}
 		totalTimeHour+=addTime;
