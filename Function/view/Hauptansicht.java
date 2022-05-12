@@ -35,6 +35,7 @@ public class Hauptansicht extends JFrame {
 	private JTextField text_StundeUhrzeit;
 	private JTextField text_StundenFahrzeit;
 	private JTextField textField;
+	private JTextField text_Name;
 
 	/**
 	 * Launch the application.
@@ -96,7 +97,7 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_WackeApp);
 		
 		JLabel label_FetWakeApp = new JLabel("WakeApp");
-		sl_panel.putConstraint(SpringLayout.NORTH, label_FetWakeApp, 27, SpringLayout.SOUTH, label_WackeApp);
+		sl_panel.putConstraint(SpringLayout.NORTH, label_FetWakeApp, 6, SpringLayout.SOUTH, label_WackeApp);
 		sl_panel.putConstraint(SpringLayout.WEST, label_FetWakeApp, 157, SpringLayout.WEST, panel);
 		label_FetWakeApp.setFont(new Font("Arial", Font.BOLD, 20));
 		panel.add(label_FetWakeApp);
@@ -119,6 +120,7 @@ public class Hauptansicht extends JFrame {
 		panel.add(label_Wohnort);
 		
 		JLabel label_Zielort = new JLabel("Zielort:");
+		sl_panel.putConstraint(SpringLayout.NORTH, label_Zielort, 278, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, label_Wohnort, -13, SpringLayout.NORTH, label_Zielort);
 		sl_panel.putConstraint(SpringLayout.WEST, label_Zielort, 10, SpringLayout.WEST, panel);
 		label_Zielort.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -151,14 +153,6 @@ public class Hauptansicht extends JFrame {
 		panel.add(txtAdresse);
 		txtAdresse.setColumns(10);
 		
-		JLabel label_Bennenung = new JLabel("Bennenung");
-		sl_panel.putConstraint(SpringLayout.NORTH, label_Bennenung, 298, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, label_Zielort, -6, SpringLayout.NORTH, label_Bennenung);
-		sl_panel.putConstraint(SpringLayout.WEST, label_Bennenung, 8, SpringLayout.WEST, panel);
-		label_Bennenung.setFont(new Font("Arial", Font.PLAIN, 14));
-		label_Bennenung.setForeground(new Color(128, 128, 128));
-		panel.add(label_Bennenung);
-		
 		JLabel label_zwischen = new JLabel(":");
 		sl_panel.putConstraint(SpringLayout.WEST, txt_ZeitInMinuten, 6, SpringLayout.EAST, label_zwischen);
 		sl_panel.putConstraint(SpringLayout.WEST, label_zwischen, 140, SpringLayout.EAST, label_Fertigmachzeit);
@@ -178,7 +172,7 @@ public class Hauptansicht extends JFrame {
 		txtStunden.setColumns(10);
 		
 		JRadioButton rdbtnpnv = new JRadioButton("ÖPNV");
-		sl_panel.putConstraint(SpringLayout.NORTH, rdbtnpnv, 19, SpringLayout.SOUTH, label_Bennenung);
+		sl_panel.putConstraint(SpringLayout.NORTH, rdbtnpnv, 42, SpringLayout.SOUTH, label_Zielort);
 		sl_panel.putConstraint(SpringLayout.WEST, rdbtnpnv, 0, SpringLayout.WEST, label_Ankunftszeit);
 		rdbtnpnv.setFont(new Font("Arial", Font.PLAIN, 12));
 		panel.add(rdbtnpnv);
@@ -271,5 +265,21 @@ public class Hauptansicht extends JFrame {
 		label_zwischen_2.setForeground(Color.BLACK);
 		label_zwischen_2.setFont(new Font("Arial", Font.PLAIN, 12));
 		panel.add(label_zwischen_2);
+		
+		text_Name = new JTextField();
+		sl_panel.putConstraint(SpringLayout.NORTH, text_Name, 6, SpringLayout.SOUTH, label_FetWakeApp);
+		sl_panel.putConstraint(SpringLayout.WEST, text_Name, 0, SpringLayout.WEST, label_Ankunftszeit);
+		text_Name.setFont(new Font("Arial", Font.BOLD, 18));
+		text_Name.setForeground(new Color(192, 192, 192));
+		text_Name.setText("Weckker Name");
+		panel.add(text_Name);
+		text_Name.setColumns(10);
+		
+		JLabel label_Vortbewegung = new JLabel("Vortbewegung");
+		label_Vortbewegung.setForeground(new Color(128, 128, 128));
+		sl_panel.putConstraint(SpringLayout.EAST, label_Vortbewegung, 43, SpringLayout.EAST, label_Wohnort);
+		label_Vortbewegung.setFont(new Font("Arial", Font.PLAIN, 14));
+		sl_panel.putConstraint(SpringLayout.SOUTH, label_Vortbewegung, -12, SpringLayout.NORTH, rdbtnpnv);
+		panel.add(label_Vortbewegung);
 	}
 }
