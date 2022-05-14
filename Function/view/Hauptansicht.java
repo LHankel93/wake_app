@@ -43,13 +43,9 @@ public class Hauptansicht extends JFrame {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane);
 
-		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane_1.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("New tab", null, tabbedPane_1, null);
-
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		tabbedPane_1.addTab("New tab", null, panel, null);
+		tabbedPane.addTab("Wecker erstellen", null, panel, null);
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
 
@@ -269,5 +265,6 @@ public class Hauptansicht extends JFrame {
 		btnWeckapp.setForeground(new Color(255, 255, 255));
 		btnWeckapp.setHorizontalAlignment(SwingConstants.LEFT);
 		panel.add(btnWeckapp);
+
 	}
 }
