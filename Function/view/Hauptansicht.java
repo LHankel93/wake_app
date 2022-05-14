@@ -307,7 +307,7 @@ public class Hauptansicht extends JFrame {
 		
 		JPanel panelWeckerUebersicht = new JPanel();
 		panelWeckerUebersicht.setBackground(Color.WHITE);
-		tabbedPane.addTab("New tab", null, panelWeckerUebersicht, null);
+		tabbedPane.addTab("Übersicht", new ImageIcon(Hauptansicht.class.getResource("/img/glocke.png")), panelWeckerUebersicht, null);
 		panelWeckerUebersicht.setLayout(new SpringLayout());
 		btnWeckerHinzufgen.addActionListener(aL);
 
