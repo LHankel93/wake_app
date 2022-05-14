@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Diese Klasse soll Wecker Objekte erstellen können.
+ * Diese Klasse soll Wecker Objekte darstellen.
  * 
  * @author Lorenz Hankel
  * @version v0.0.1

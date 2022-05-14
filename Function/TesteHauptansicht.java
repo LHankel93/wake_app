@@ -3,7 +3,7 @@ import view.Hauptansicht;
 
 /**
  * Diese Klasse stellt eine main Methode dar, um die GUI Hauptansicht zu starten
- * und testen.
+ * und zu testen.
  * 
  * @author Lorenz Hankel
  * @version v0.0.1
