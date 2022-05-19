@@ -38,7 +38,7 @@ public class Hauptansicht extends JFrame {
 	private JButton btnWeckerHinzufgen;
 
 	/**
-	 * Create the frame.
+	 * Erstellt den Frame für die WakeApp.
 	 */
 	public Hauptansicht() {
 		// Wecker Rechner initialisieren und deklarieren.
@@ -366,4 +366,101 @@ public class Hauptansicht extends JFrame {
 		// (btnWeckerHinzufgen)
 
 	}
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public JTextField getTxtFertigmachenMinuten() {
+		return txtFertigmachenMinuten;
+	}
+
+	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
+		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
+	}
+
+	public JTextField getTxtWohnort() {
+		return txtWohnort;
+	}
+
+	public void setTxtWohnort(JTextField txtWohnort) {
+		this.txtWohnort = txtWohnort;
+	}
+
+	public JTextField getTxtZielort() {
+		return txtZielort;
+	}
+
+	public void setTxtZielort(JTextField txtZielort) {
+		this.txtZielort = txtZielort;
+	}
+
+	public JTextField getTxtFertigmachenStunden() {
+		return txtFertigmachenStunden;
+	}
+
+	public void setTxtFertigmachenStunden(JTextField txtFertigmachenStunden) {
+		this.txtFertigmachenStunden = txtFertigmachenStunden;
+	}
+
+	public JTextField getTxtAnkunftMinuten() {
+		return txtAnkunftMinuten;
+	}
+
+	public void setTxtAnkunftMinuten(JTextField txtAnkunftMinuten) {
+		this.txtAnkunftMinuten = txtAnkunftMinuten;
+	}
+
+	public JTextField getTxtAnkunftStunden() {
+		return txtAnkunftStunden;
+	}
+
+	public void setTxtAnkunftStunden(JTextField txtAnkunftStunden) {
+		this.txtAnkunftStunden = txtAnkunftStunden;
+	}
+
+	public JTextField getTxtFahrenStunden() {
+		return txtFahrenStunden;
+	}
+
+	public void setTxtFahrenStunden(JTextField txtFahrenStunden) {
+		this.txtFahrenStunden = txtFahrenStunden;
+	}
+
+	public JTextField getTxtFahrenMinuten() {
+		return txtFahrenMinuten;
+	}
+
+	public void setTxtFahrenMinuten(JTextField txtFahrenMinuten) {
+		this.txtFahrenMinuten = txtFahrenMinuten;
+	}
+
+	public JTextField getText_Name() {
+		return text_Name;
+	}
+
+	public void setText_Name(JTextField text_Name) {
+		this.text_Name = text_Name;
+	}
+
+	public JLabel getLblHilfeTextZeit() {
+		return lblHilfeTextZeit;
+	}
+
+	public void setLblHilfeTextZeit(JLabel lblHilfeTextZeit) {
+		this.lblHilfeTextZeit = lblHilfeTextZeit;
+	}
+
+	public JButton getBtnWeckerHinzufgen() {
+		return btnWeckerHinzufgen;
+	}
+
+	public void setBtnWeckerHinzufgen(JButton btnWeckerHinzufgen) {
+		this.btnWeckerHinzufgen = btnWeckerHinzufgen;
+	}
+
 }
