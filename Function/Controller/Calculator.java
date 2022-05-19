@@ -1,7 +1,6 @@
 package Controller;
-
-import java.util.HashMap;
-
+import java.time.*;
+import view.Hauptansicht;
 /**
  * 
  * @author Demir
@@ -10,36 +9,43 @@ import java.util.HashMap;
 
 public class Calculator {
 
-	/**
-	 * TODO bitte JavaDoc füllen.
-	 * 
-	 * @param startHour
-	 * @param startMinute
-	 * @param endHour
-	 * @param endMinute
-	 * @return Die berechnete Weckzeit gespeichert in einer HashMap. Stunden unter
-	 *         dem String "hours", Minuten unter dem String "minutes".
-	 */
-	public static HashMap<String, Integer> TimerCalculator(int startHour, int startMinute, int endHour, int endMinute) {
-		@SuppressWarnings("unused")
-		int totalEndHour, totalEndMinute;
-		HashMap<String, Integer> totalEndTime = new HashMap<String, Integer>();
-		totalEndHour = endHour - startHour;
-		totalEndMinute = endMinute - startMinute;
+	public static void TimerCalculator() {
+	
+		Hauptansicht mainWindow = new Hauptansicht();
+		int arriveTimeHour = Integer.parseInt(mainWindow.text_StundeUhrzeit.getText());
+		int arriveTimeMinute = Integer.parseInt(mainWindow.textMinutenUrzeit.getText());
+		int preperationTimeHour = Integer.parseInt(mainWindow.txtStunden.getText());
+		int preperationTimeMinute = Integer.parseInt(mainWindow.txt_ZeitInMinuten.getText());
+		int travelTimeMinute=Integer.parseInt(mainWindow.Text_MinutenFahrzeit.getText());
+		int travelTimeHour = Integer.parseInt(mainWindow.text_StundenFahrzeit.getText());
 
-		// Errechnete Daten in die HashMap einfügen:
-		totalEndTime.put("hours", endHour);
-		totalEndTime.put("minutes", endMinute);
-
-		// totalEnd = (totalEndHour + ":" + totalEndMinute); // Überflüssig dank
-		// HashMap.
-		System.out.println(totalEndTime.get("hours") + " : " + totalEndTime.get("minutes")); // angepasst auf HashMap,
-																								// kann später entfernt
-																								// werden, wenn Methode
-																								// korrekt arbeitet.
-
-		return totalEndTime; // Sollte jetzt mit der HashMap super arbeiten :).
-		// return in label (totalEndhour+":"+totalEndMinute);
-
+	
+		int totalTimeHour =travelTimeHour+ preperationTimeHour;
+		int totalTimeMinute = travelTimeMinute+ preperationTimeMinute;
+		int staticTime = 60;
+		int addTime=0;
+		
+		for(int i =0;totalTimeMinute>= staticTime;i++) {
+			totalTimeMinute-=staticTime;
+			addTime++;
+		}
+		
+		
+		totalTimeMinute = arriveTimeMinute-totalTimeMinute;
+		
+		if(totalTimeMinute< 0) {
+			addTime++;
+			totalTimeMinute = staticTime-(-totalTimeMinute);
+		}
+		totalTimeHour+=addTime;
+		
+		totalTimeHour = arriveTimeHour-totalTimeHour;
+		
+		
+		//System.out.println(totalTimeHour+ ":"+totalTimeMinute);
+		
+	
+		
+		
 	}
 }
