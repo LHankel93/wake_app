@@ -11,6 +11,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -18,7 +19,15 @@ import javax.swing.JRadioButton;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import Controller.*;
-
+import model.Wecker;
+/**
+ * Diese Klasse ist zum erzeugen der GUIs da
+ * 
+ * @author Maria siegmann
+ * @version v0.0.1
+ * 
+ *
+ */
 @SuppressWarnings("serial")
 public class Hauptansicht extends JFrame {
 
@@ -156,7 +165,7 @@ public class Hauptansicht extends JFrame {
 		txtFertigmachenStunden.setText("Stunden");
 		panelWeckerErstellen.add(txtFertigmachenStunden);
 		txtFertigmachenStunden.setColumns(10);
-
+		//RadioButtons zu Wahl zwischen ÖPNV und Auto
 		JRadioButton rdbtnopnv = new JRadioButton("ÖPNV");
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, rdbtnopnv, 42, SpringLayout.SOUTH, label_Zielort);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, rdbtnopnv, 0, SpringLayout.WEST, label_Ankunftszeit);
@@ -274,7 +283,7 @@ public class Hauptansicht extends JFrame {
 		label_zwischen_2.setForeground(Color.BLACK);
 		label_zwischen_2.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(label_zwischen_2);
-
+		// Textfeld um den Wecker einen Namen zu geben
 		text_Name = new JTextField();
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, text_Name, 14, SpringLayout.SOUTH, label_FettWakeApp);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_Ankunftszeit, 19, SpringLayout.SOUTH,
@@ -293,7 +302,8 @@ public class Hauptansicht extends JFrame {
 		lblFortbewegung.setFont(new Font("Arial", Font.PLAIN, 14));
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, lblFortbewegung, -12, SpringLayout.NORTH, rdbtnopnv);
 		panelWeckerErstellen.add(lblFortbewegung);
-
+		//ButtnWecker hinzufügen
+		//Soll bei betätigen den wecker in die CSV speichern
 		btnWeckerHinzufgen = new JButton("Wecker hinzufügen");
 		btnWeckerHinzufgen.setForeground(new Color(255, 255, 255));
 		btnWeckerHinzufgen.setBackground(new Color(138, 43, 226));
@@ -303,7 +313,7 @@ public class Hauptansicht extends JFrame {
 				panelWeckerErstellen);
 		btnWeckerHinzufgen.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(btnWeckerHinzufgen);
-
+		//Button für den Oberen Schriftzug da ein Label sich ncht entsprächent Formatieren lässt
 		JButton btnWeckapp = new JButton("WakeApp");
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_FettWakeApp, 6, SpringLayout.SOUTH, btnWeckapp);
 		btnWeckapp.setEnabled(false);
@@ -318,12 +328,26 @@ public class Hauptansicht extends JFrame {
 		btnWeckapp.setForeground(new Color(255, 255, 255));
 		btnWeckapp.setHorizontalAlignment(SwingConstants.LEFT);
 		panelWeckerErstellen.add(btnWeckapp);
-
+		
+		//Panel in den alle Gespeicherten Wecker aufgelistet werden
 		JPanel panelWeckerUebersicht = new JPanel();
 		panelWeckerUebersicht.setBackground(Color.WHITE);
 		tabbedPane.addTab("Übersicht", new ImageIcon(Hauptansicht.class.getResource("/img/glocke.png")),
 				panelWeckerUebersicht, null);
-		panelWeckerUebersicht.setLayout(new SpringLayout());
+		SpringLayout sl_panelWeckerUebersicht = new SpringLayout();
+		panelWeckerUebersicht.setLayout(sl_panelWeckerUebersicht);
+		
+		
+		//Liste erzeugen um dynamisch die Buttons zu erzeugen
+		ArrayList<Wecker> weckerListe = CSVHandler.weckerLaden();
+		for(int i = 0; i < weckerListe.size(); i++) {
+			JButton btnTest = new JButton((weckerListe.get(i)).toString());
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.NORTH, btnTest, 156, SpringLayout.NORTH, panelWeckerUebersicht);
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.WEST, btnTest, 142, SpringLayout.WEST, panelWeckerUebersicht);
+			panelWeckerUebersicht.add(btnTest);	
+		}
+	
+		
 
 		// Action Listener implementieren
 		ActionListener aL = new ActionListener() {
