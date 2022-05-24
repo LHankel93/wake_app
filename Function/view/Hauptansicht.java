@@ -339,11 +339,16 @@ public class Hauptansicht extends JFrame {
 		
 		
 		//Liste erzeugen um dynamisch die Buttons zu erzeugen
-		ArrayList<Wecker> weckerListe = CSVHandler.weckerLaden();
-		for(int i = 0; i < weckerListe.size(); i++) {
-			JButton btnTest = new JButton((weckerListe.get(i)).toString());
-			sl_panelWeckerUebersicht.putConstraint(SpringLayout.NORTH, btnTest, 156, SpringLayout.NORTH, panelWeckerUebersicht);
-			sl_panelWeckerUebersicht.putConstraint(SpringLayout.WEST, btnTest, 142, SpringLayout.WEST, panelWeckerUebersicht);
+		//ArrayList<Wecker> weckerListe = CSVHandler.weckerLaden();
+		ArrayList<Integer> testListe = new ArrayList<Integer>();
+		testListe.add(1);
+		testListe.add(2);
+		testListe.add(3);
+		for(int i = 0; i < testListe.size(); i++) {
+		String s = String.valueOf(testListe.get(i)); 
+			JButton btnTest = new JButton(s);
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.NORTH, btnTest, 10+(i*30), SpringLayout.NORTH, panelWeckerUebersicht);
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.WEST, btnTest, 140, SpringLayout.WEST, panelWeckerUebersicht);
 			panelWeckerUebersicht.add(btnTest);	
 		}
 	
