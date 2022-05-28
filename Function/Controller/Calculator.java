@@ -12,12 +12,12 @@ public class Calculator {
 	public static void TimerCalculator() {
 	
 		Hauptansicht mainWindow = new Hauptansicht();
-		int arriveTimeHour = Integer.parseInt(mainWindow.text_StundeUhrzeit.getText());
-		int arriveTimeMinute = Integer.parseInt(mainWindow.textMinutenUrzeit.getText());
-		int preperationTimeHour = Integer.parseInt(mainWindow.txtStunden.getText());
-		int preperationTimeMinute = Integer.parseInt(mainWindow.txt_ZeitInMinuten.getText());
-		int travelTimeMinute=Integer.parseInt(mainWindow.Text_MinutenFahrzeit.getText());
-		int travelTimeHour = Integer.parseInt(mainWindow.text_StundenFahrzeit.getText());
+		int arriveTimeHour = Integer.parseInt(mainWindow.getTxtAnkunftStunden().toString());
+		int arriveTimeMinute = Integer.parseInt(mainWindow.getTxtAnkunftMinuten().toString());
+		int preperationTimeHour = Integer.parseInt(mainWindow.getTxtFertigmachenStunden().toString());
+		int preperationTimeMinute = Integer.parseInt(mainWindow.getTxtFertigmachenMinuten().toString());
+		int travelTimeMinute=Integer.parseInt(mainWindow.getTxtFahrenMinuten().toString());
+		int travelTimeHour = Integer.parseInt(mainWindow.getTxtFahrenStunden().toString());
 
 	
 		int totalTimeHour =travelTimeHour+ preperationTimeHour;
@@ -44,8 +44,7 @@ public class Calculator {
 		
 		//System.out.println(totalTimeHour+ ":"+totalTimeMinute);
 		
-	
-		
+	 
 		
 	}
 }
