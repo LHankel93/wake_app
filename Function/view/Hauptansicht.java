@@ -11,6 +11,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -323,7 +324,22 @@ public class Hauptansicht extends JFrame {
 		panelWeckerUebersicht.setBackground(Color.WHITE);
 		tabbedPane.addTab("Übersicht", new ImageIcon(Hauptansicht.class.getResource("/img/glocke.png")),
 				panelWeckerUebersicht, null);
-		panelWeckerUebersicht.setLayout(new SpringLayout());
+		SpringLayout sl_panelWeckerUebersicht = new SpringLayout();
+		panelWeckerUebersicht.setLayout(sl_panelWeckerUebersicht);
+		
+		
+		//ArrayList<Wecker> weckerListe = CSVHandler.weckerLaden();
+		ArrayList<Integer> testListe = new ArrayList<Integer>();
+		testListe.add(1);
+		testListe.add(2);
+		testListe.add(3);
+		for(int i = 0; i < testListe.size(); i++) {
+		String s = String.valueOf(testListe.get(i)); 
+			JButton btnTest = new JButton(s);
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.NORTH, btnTest, 10+(i*30), SpringLayout.NORTH, panelWeckerUebersicht);
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.WEST, btnTest, 140, SpringLayout.WEST, panelWeckerUebersicht);
+			panelWeckerUebersicht.add(btnTest);	
+		};
 
 		// Action Listener implementieren
 		ActionListener aL = new ActionListener() {
@@ -365,5 +381,104 @@ public class Hauptansicht extends JFrame {
 		// Wenn Zeit korrekt berechnet, dann den Button für Hinzufügen freigeben.
 		// (btnWeckerHinzufgen)
 
+	}
+	
+	//GET und SET
+
+	public JTextField getTxtFertigmachenMinuten() {
+		return txtFertigmachenMinuten;
+	}
+
+	public JTextField getTxtWohnort() {
+		return txtWohnort;
+	}
+
+	public JTextField getTxtZielort() {
+		return txtZielort;
+	}
+
+	public JTextField getTxtFertigmachenStunden() {
+		return txtFertigmachenStunden;
+	}
+
+	public JTextField getTxtAnkunftMinuten() {
+		return txtAnkunftMinuten;
+	}
+
+	public JTextField getTxtAnkunftStunden() {
+		return txtAnkunftStunden;
+	}
+
+	public JTextField getTxtFahrenStunden() {
+		return txtFahrenStunden;
+	}
+
+	public JTextField getTxtFahrenMinuten() {
+		return txtFahrenMinuten;
+	}
+
+	public JTextField getText_Name() {
+		return text_Name;
+	}
+
+	public JLabel getLblHilfeTextZeit() {
+		return lblHilfeTextZeit;
+	}
+
+	public Calculator getCalculator() {
+		return calculator;
+	}
+
+	public JButton getBtnWeckerHinzufgen() {
+		return btnWeckerHinzufgen;
+	}
+
+
+	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
+		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
+	}
+
+	public void setTxtWohnort(JTextField txtWohnort) {
+		this.txtWohnort = txtWohnort;
+	}
+
+	public void setTxtZielort(JTextField txtZielort) {
+		this.txtZielort = txtZielort;
+	}
+
+	public void setTxtFertigmachenStunden(JTextField txtFertigmachenStunden) {
+		this.txtFertigmachenStunden = txtFertigmachenStunden;
+	}
+
+	public void setTxtAnkunftMinuten(JTextField txtAnkunftMinuten) {
+		this.txtAnkunftMinuten = txtAnkunftMinuten;
+	}
+
+	public void setTxtAnkunftStunden(JTextField txtAnkunftStunden) {
+		this.txtAnkunftStunden = txtAnkunftStunden;
+	}
+
+	public void setTxtFahrenStunden(JTextField txtFahrenStunden) {
+		this.txtFahrenStunden = txtFahrenStunden;
+	}
+
+	public void setTxtFahrenMinuten(JTextField txtFahrenMinuten) {
+		this.txtFahrenMinuten = txtFahrenMinuten;
+	}
+
+	public void setText_Name(JTextField text_Name) {
+		this.text_Name = text_Name;
+	}
+
+	public void setLblHilfeTextZeit(JLabel lblHilfeTextZeit) {
+		this.lblHilfeTextZeit = lblHilfeTextZeit;
+	}
+
+	public void setCalculator(Calculator calculator) {
+		this.calculator = calculator;
+	}
+
+	public void setBtnWeckerHinzufgen(JButton btnWeckerHinzufgen) {
+		this.btnWeckerHinzufgen = btnWeckerHinzufgen;
 	}
 }
