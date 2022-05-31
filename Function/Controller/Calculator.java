@@ -9,14 +9,23 @@ import view.Hauptansicht;
 
 public class Calculator {
 
-	public static void TimerCalculator() {
+	private Hauptansicht mainWindow;
 	
-		Hauptansicht mainWindow = new Hauptansicht();
+
+	public  Calculator(Hauptansicht mainWindow) {
+	
+	this.mainWindow = mainWindow;
+	 
+		
+	}
+	
+	public void Rechnung() {
+		
 		int arriveTimeHour = Integer.parseInt(mainWindow.getTxtAnkunftStunden().getText());
 		int arriveTimeMinute = Integer.parseInt(mainWindow.getTxtAnkunftMinuten().getText());
 		int preperationTimeHour = Integer.parseInt(mainWindow.getTxtFertigmachenStunden().getText());
 		int preperationTimeMinute = Integer.parseInt(mainWindow.getTxtFertigmachenMinuten().getText());
-		int travelTimeMinute=Integer.parseInt(mainWindow.getTxtFahrenMinuten().getText());
+		int travelTimeMinute= Integer.parseInt(mainWindow.getTxtFahrenMinuten().getText());
 		int travelTimeHour = Integer.parseInt(mainWindow.getTxtFahrenStunden().getText());
 
 	
@@ -48,8 +57,6 @@ public class Calculator {
 		
 		//mainWindow.getLblHilfeTextZeit().setText(ZielStringed);
 		mainWindow.lblHilfeTextZeit.setText(ZielStringed);
-		
-	 
 		
 	}
 }
