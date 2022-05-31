@@ -11,6 +11,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -18,19 +19,131 @@ import javax.swing.JRadioButton;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import Controller.*;
-
+import model.Wecker;
+/**
+ * Diese Klasse ist zum erzeugen der GUIs da
+ * 
+ * @author Maria siegmann
+ * @version v0.0.1
+ * 
+ *
+ */
 @SuppressWarnings("serial")
 public class Hauptansicht extends JFrame {
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public JTextField getTxtFertigmachenMinuten() {
+		return txtFertigmachenMinuten;
+	}
+
+	public JTextField getTxtWohnort() {
+		return txtWohnort;
+	}
+
+	public JTextField getTxtZielort() {
+		return txtZielort;
+	}
+
+	public JTextField getTxtFertigmachenStunden() {
+		return txtFertigmachenStunden;
+	}
+
+	public JTextField getTxtAnkunftMinuten() {
+		return txtAnkunftMinuten;
+	}
+
+	public JTextField getTxtAnkunftStunden() {
+		return txtAnkunftStunden;
+	}
+
+	public JTextField getTxtFahrenStunden() {
+		return txtFahrenStunden;
+	}
+
+	public JTextField getTxtFahrenMinuten() {
+		return txtFahrenMinuten;
+	}
+
+	public JTextField getText_Name() {
+		return text_Name;
+	}
+
+	public JLabel getLblHilfeTextZeit() {
+		return lblHilfeTextZeit;
+	}
+
+	public Calculator getCalculator() {
+		return calculator;
+	}
+
+	public JButton getBtnWeckerHinzufgen() {
+		return btnWeckerHinzufgen;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
+		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
+	}
+
+	public void setTxtWohnort(JTextField txtWohnort) {
+		this.txtWohnort = txtWohnort;
+	}
+
+	public void setTxtZielort(JTextField txtZielort) {
+		this.txtZielort = txtZielort;
+	}
+
+	public void setTxtFertigmachenStunden(JTextField txtFertigmachenStunden) {
+		this.txtFertigmachenStunden = txtFertigmachenStunden;
+	}
+
+	public void setTxtAnkunftMinuten(JTextField txtAnkunftMinuten) {
+		this.txtAnkunftMinuten = txtAnkunftMinuten;
+	}
+
+	public void setTxtAnkunftStunden(JTextField txtAnkunftStunden) {
+		this.txtAnkunftStunden = txtAnkunftStunden;
+	}
+
+	public void setTxtFahrenStunden(JTextField txtFahrenStunden) {
+		this.txtFahrenStunden = txtFahrenStunden;
+	}
+
+	public void setTxtFahrenMinuten(JTextField txtFahrenMinuten) {
+		this.txtFahrenMinuten = txtFahrenMinuten;
+	}
+
+	public void setText_Name(JTextField text_Name) {
+		this.text_Name = text_Name;
+	}
+
+	public void setLblHilfeTextZeit(JLabel lblHilfeTextZeit) {
+		this.lblHilfeTextZeit = lblHilfeTextZeit;
+	}
+
+	public void setCalculator(Calculator calculator) {
+		this.calculator = calculator;
+	}
+
+	public void setBtnWeckerHinzufgen(JButton btnWeckerHinzufgen) {
+		this.btnWeckerHinzufgen = btnWeckerHinzufgen;
+	}
 
 	private JPanel contentPane;
 	private JTextField txtFertigmachenMinuten;
 	private JTextField txtWohnort;
 	private JTextField txtZielort;
-	private	JTextField txtFertigmachenStunden;
-	private  JTextField txtAnkunftMinuten;
-	private  JTextField txtAnkunftStunden;
-	private  JTextField txtFahrenStunden;
-	private  JTextField txtFahrenMinuten;
+	private JTextField txtFertigmachenStunden;
+	private JTextField txtAnkunftMinuten;
+	private JTextField txtAnkunftStunden;
+	private JTextField txtFahrenStunden;
+	private JTextField txtFahrenMinuten;
 	private JTextField text_Name;
 	// manuell hinzugefügte Attribute
 	public JLabel lblHilfeTextZeit;
@@ -38,7 +151,7 @@ public class Hauptansicht extends JFrame {
 	private JButton btnWeckerHinzufgen;
 
 	/**
-	 * Erstellt den Frame für die WakeApp.
+	 * Create the frame.
 	 */
 	public Hauptansicht() {
 		// Wecker Rechner initialisieren und deklarieren.
@@ -70,15 +183,6 @@ public class Hauptansicht extends JFrame {
 		btn_Berechnen.setFont(new Font("Arial", Font.PLAIN, 12));
 		btn_Berechnen.setBackground(new Color(138, 43, 226));
 		panelWeckerErstellen.add(btn_Berechnen);
-		
-		btn_Berechnen.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent click) {
-				
-				Calculator.TimerCalculator();
-			}
-		});
-		
 
 		JLabel label_FettWakeApp = new JLabel("WakeApp");
 		label_FettWakeApp.setFont(new Font("Arial", Font.BOLD, 20));
@@ -165,7 +269,7 @@ public class Hauptansicht extends JFrame {
 		txtFertigmachenStunden.setText("Stunden");
 		panelWeckerErstellen.add(txtFertigmachenStunden);
 		txtFertigmachenStunden.setColumns(10);
-
+		//RadioButtons zu Wahl zwischen ÖPNV und Auto
 		JRadioButton rdbtnopnv = new JRadioButton("ÖPNV");
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, rdbtnopnv, 42, SpringLayout.SOUTH, label_Zielort);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, rdbtnopnv, 0, SpringLayout.WEST, label_Ankunftszeit);
@@ -283,7 +387,7 @@ public class Hauptansicht extends JFrame {
 		label_zwischen_2.setForeground(Color.BLACK);
 		label_zwischen_2.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(label_zwischen_2);
-
+		// Textfeld um den Wecker einen Namen zu geben
 		text_Name = new JTextField();
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, text_Name, 14, SpringLayout.SOUTH, label_FettWakeApp);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_Ankunftszeit, 19, SpringLayout.SOUTH,
@@ -302,7 +406,8 @@ public class Hauptansicht extends JFrame {
 		lblFortbewegung.setFont(new Font("Arial", Font.PLAIN, 14));
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, lblFortbewegung, -12, SpringLayout.NORTH, rdbtnopnv);
 		panelWeckerErstellen.add(lblFortbewegung);
-
+		//ButtnWecker hinzufügen
+		//Soll bei betätigen den wecker in die CSV speichern
 		btnWeckerHinzufgen = new JButton("Wecker hinzufügen");
 		btnWeckerHinzufgen.setForeground(new Color(255, 255, 255));
 		btnWeckerHinzufgen.setBackground(new Color(138, 43, 226));
@@ -312,7 +417,7 @@ public class Hauptansicht extends JFrame {
 				panelWeckerErstellen);
 		btnWeckerHinzufgen.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(btnWeckerHinzufgen);
-
+		//Button für den Oberen Schriftzug da ein Label sich ncht entsprächent Formatieren lässt
 		JButton btnWeckapp = new JButton("WakeApp");
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_FettWakeApp, 6, SpringLayout.SOUTH, btnWeckapp);
 		btnWeckapp.setEnabled(false);
@@ -327,12 +432,31 @@ public class Hauptansicht extends JFrame {
 		btnWeckapp.setForeground(new Color(255, 255, 255));
 		btnWeckapp.setHorizontalAlignment(SwingConstants.LEFT);
 		panelWeckerErstellen.add(btnWeckapp);
-
+		
+		//Panel in den alle Gespeicherten Wecker aufgelistet werden
 		JPanel panelWeckerUebersicht = new JPanel();
 		panelWeckerUebersicht.setBackground(Color.WHITE);
 		tabbedPane.addTab("Übersicht", new ImageIcon(Hauptansicht.class.getResource("/img/glocke.png")),
 				panelWeckerUebersicht, null);
-		panelWeckerUebersicht.setLayout(new SpringLayout());
+		SpringLayout sl_panelWeckerUebersicht = new SpringLayout();
+		panelWeckerUebersicht.setLayout(sl_panelWeckerUebersicht);
+		
+		
+		//Liste erzeugen um dynamisch die Buttons zu erzeugen
+		//ArrayList<Wecker> weckerListe = CSVHandler.weckerLaden();
+		ArrayList<Integer> testListe = new ArrayList<Integer>();
+		testListe.add(1);
+		testListe.add(2);
+		testListe.add(3);
+		for(int i = 0; i < testListe.size(); i++) {
+		String s = String.valueOf(testListe.get(i)); 
+			JButton btnTest = new JButton(s);
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.NORTH, btnTest, 10+(i*30), SpringLayout.NORTH, panelWeckerUebersicht);
+			sl_panelWeckerUebersicht.putConstraint(SpringLayout.WEST, btnTest, 140, SpringLayout.WEST, panelWeckerUebersicht);
+			panelWeckerUebersicht.add(btnTest);	
+		}
+	
+		
 
 		// Action Listener implementieren
 		ActionListener aL = new ActionListener() {
@@ -375,101 +499,4 @@ public class Hauptansicht extends JFrame {
 		// (btnWeckerHinzufgen)
 
 	}
-
-	public JPanel getContentPane() {
-		return contentPane;
-	}
-
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
-	}
-
-	public JTextField getTxtFertigmachenMinuten() {
-		return txtFertigmachenMinuten;
-	}
-
-	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
-		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
-	}
-
-	public JTextField getTxtWohnort() {
-		return txtWohnort;
-	}
-
-	public void setTxtWohnort(JTextField txtWohnort) {
-		this.txtWohnort = txtWohnort;
-	}
-
-	public JTextField getTxtZielort() {
-		return txtZielort;
-	}
-
-	public void setTxtZielort(JTextField txtZielort) {
-		this.txtZielort = txtZielort;
-	}
-
-	public JTextField getTxtFertigmachenStunden() {
-		return txtFertigmachenStunden;
-	}
-
-	public void setTxtFertigmachenStunden(JTextField txtFertigmachenStunden) {
-		this.txtFertigmachenStunden = txtFertigmachenStunden;
-	}
-
-	public JTextField getTxtAnkunftMinuten() {
-		return txtAnkunftMinuten;
-	}
-
-	public void setTxtAnkunftMinuten(JTextField txtAnkunftMinuten) {
-		this.txtAnkunftMinuten = txtAnkunftMinuten;
-	}
-
-	public JTextField getTxtAnkunftStunden() {
-		return txtAnkunftStunden;
-	}
-
-	public void setTxtAnkunftStunden(JTextField txtAnkunftStunden) {
-		this.txtAnkunftStunden = txtAnkunftStunden;
-	}
-
-	public JTextField getTxtFahrenStunden() {
-		return txtFahrenStunden;
-	}
-
-	public void setTxtFahrenStunden(JTextField txtFahrenStunden) {
-		this.txtFahrenStunden = txtFahrenStunden;
-	}
-
-	public JTextField getTxtFahrenMinuten() {
-		return txtFahrenMinuten;
-	}
-
-	public void setTxtFahrenMinuten(JTextField txtFahrenMinuten) {
-		this.txtFahrenMinuten = txtFahrenMinuten;
-	}
-
-	public JTextField getText_Name() {
-		return text_Name;
-	}
-
-	public void setText_Name(JTextField text_Name) {
-		this.text_Name = text_Name;
-	}
-
-	public JLabel getLblHilfeTextZeit() {
-		return lblHilfeTextZeit;
-	}
-
-	public void setLblHilfeTextZeit(JLabel lblHilfeTextZeit) {
-		this.lblHilfeTextZeit = lblHilfeTextZeit;
-	}
-
-	public JButton getBtnWeckerHinzufgen() {
-		return btnWeckerHinzufgen;
-	}
-
-	public void setBtnWeckerHinzufgen(JButton btnWeckerHinzufgen) {
-		this.btnWeckerHinzufgen = btnWeckerHinzufgen;
-	}
-
 }

@@ -46,7 +46,7 @@ public class Calculator {
 		//Test für Funktionalität der Rechnung
 		//System.out.println(totalTimeHour+ ":"+totalTimeMinute);
 		
-		mainWindow.lblHilfeTextZeit.setText(ZielStringed);
+		mainWindow.getLblHilfeTextZeit().setText(ZielStringed);
 		
 	 
 		
