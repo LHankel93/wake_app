@@ -31,6 +31,110 @@ import model.Wecker;
 @SuppressWarnings("serial")
 public class Hauptansicht extends JFrame {
 
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public JTextField getTxtFertigmachenMinuten() {
+		return txtFertigmachenMinuten;
+	}
+
+	public JTextField getTxtWohnort() {
+		return txtWohnort;
+	}
+
+	public JTextField getTxtZielort() {
+		return txtZielort;
+	}
+
+	public JTextField getTxtFertigmachenStunden() {
+		return txtFertigmachenStunden;
+	}
+
+	public JTextField getTxtAnkunftMinuten() {
+		return txtAnkunftMinuten;
+	}
+
+	public JTextField getTxtAnkunftStunden() {
+		return txtAnkunftStunden;
+	}
+
+	public JTextField getTxtFahrenStunden() {
+		return txtFahrenStunden;
+	}
+
+	public JTextField getTxtFahrenMinuten() {
+		return txtFahrenMinuten;
+	}
+
+	public JTextField getText_Name() {
+		return text_Name;
+	}
+
+	public JLabel getLblHilfeTextZeit() {
+		return lblHilfeTextZeit;
+	}
+
+	public Calculator getCalculator() {
+		return calculator;
+	}
+
+	public JButton getBtnWeckerHinzufgen() {
+		return btnWeckerHinzufgen;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
+		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
+	}
+
+	public void setTxtWohnort(JTextField txtWohnort) {
+		this.txtWohnort = txtWohnort;
+	}
+
+	public void setTxtZielort(JTextField txtZielort) {
+		this.txtZielort = txtZielort;
+	}
+
+	public void setTxtFertigmachenStunden(JTextField txtFertigmachenStunden) {
+		this.txtFertigmachenStunden = txtFertigmachenStunden;
+	}
+
+	public void setTxtAnkunftMinuten(JTextField txtAnkunftMinuten) {
+		this.txtAnkunftMinuten = txtAnkunftMinuten;
+	}
+
+	public void setTxtAnkunftStunden(JTextField txtAnkunftStunden) {
+		this.txtAnkunftStunden = txtAnkunftStunden;
+	}
+
+	public void setTxtFahrenStunden(JTextField txtFahrenStunden) {
+		this.txtFahrenStunden = txtFahrenStunden;
+	}
+
+	public void setTxtFahrenMinuten(JTextField txtFahrenMinuten) {
+		this.txtFahrenMinuten = txtFahrenMinuten;
+	}
+
+	public void setText_Name(JTextField text_Name) {
+		this.text_Name = text_Name;
+	}
+
+	public void setLblHilfeTextZeit(JLabel lblHilfeTextZeit) {
+		this.lblHilfeTextZeit = lblHilfeTextZeit;
+	}
+
+	public void setCalculator(Calculator calculator) {
+		this.calculator = calculator;
+	}
+
+	public void setBtnWeckerHinzufgen(JButton btnWeckerHinzufgen) {
+		this.btnWeckerHinzufgen = btnWeckerHinzufgen;
+	}
+
 	private JPanel contentPane;
 	private JTextField txtFertigmachenMinuten;
 	private JTextField txtWohnort;
@@ -42,12 +146,12 @@ public class Hauptansicht extends JFrame {
 	private JTextField txtFahrenMinuten;
 	private JTextField text_Name;
 	// manuell hinzugefügte Attribute
-	private JLabel lblHilfeTextZeit;
+	public JLabel lblHilfeTextZeit;
 	public Calculator calculator;
 	private JButton btnWeckerHinzufgen;
 
 	/**
-	 * Erstellt den Frame für die WakeApp.
+	 * Create the frame.
 	 */
 	public Hauptansicht() {
 		// Wecker Rechner initialisieren und deklarieren.
@@ -395,101 +499,4 @@ public class Hauptansicht extends JFrame {
 		// (btnWeckerHinzufgen)
 
 	}
-
-	public JPanel getContentPane() {
-		return contentPane;
-	}
-
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
-	}
-
-	public JTextField getTxtFertigmachenMinuten() {
-		return txtFertigmachenMinuten;
-	}
-
-	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
-		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
-	}
-
-	public JTextField getTxtWohnort() {
-		return txtWohnort;
-	}
-
-	public void setTxtWohnort(JTextField txtWohnort) {
-		this.txtWohnort = txtWohnort;
-	}
-
-	public JTextField getTxtZielort() {
-		return txtZielort;
-	}
-
-	public void setTxtZielort(JTextField txtZielort) {
-		this.txtZielort = txtZielort;
-	}
-
-	public JTextField getTxtFertigmachenStunden() {
-		return txtFertigmachenStunden;
-	}
-
-	public void setTxtFertigmachenStunden(JTextField txtFertigmachenStunden) {
-		this.txtFertigmachenStunden = txtFertigmachenStunden;
-	}
-
-	public JTextField getTxtAnkunftMinuten() {
-		return txtAnkunftMinuten;
-	}
-
-	public void setTxtAnkunftMinuten(JTextField txtAnkunftMinuten) {
-		this.txtAnkunftMinuten = txtAnkunftMinuten;
-	}
-
-	public JTextField getTxtAnkunftStunden() {
-		return txtAnkunftStunden;
-	}
-
-	public void setTxtAnkunftStunden(JTextField txtAnkunftStunden) {
-		this.txtAnkunftStunden = txtAnkunftStunden;
-	}
-
-	public JTextField getTxtFahrenStunden() {
-		return txtFahrenStunden;
-	}
-
-	public void setTxtFahrenStunden(JTextField txtFahrenStunden) {
-		this.txtFahrenStunden = txtFahrenStunden;
-	}
-
-	public JTextField getTxtFahrenMinuten() {
-		return txtFahrenMinuten;
-	}
-
-	public void setTxtFahrenMinuten(JTextField txtFahrenMinuten) {
-		this.txtFahrenMinuten = txtFahrenMinuten;
-	}
-
-	public JTextField getText_Name() {
-		return text_Name;
-	}
-
-	public void setText_Name(JTextField text_Name) {
-		this.text_Name = text_Name;
-	}
-
-	public JLabel getLblHilfeTextZeit() {
-		return lblHilfeTextZeit;
-	}
-
-	public void setLblHilfeTextZeit(JLabel lblHilfeTextZeit) {
-		this.lblHilfeTextZeit = lblHilfeTextZeit;
-	}
-
-	public JButton getBtnWeckerHinzufgen() {
-		return btnWeckerHinzufgen;
-	}
-
-	public void setBtnWeckerHinzufgen(JButton btnWeckerHinzufgen) {
-		this.btnWeckerHinzufgen = btnWeckerHinzufgen;
-	}
-
 }

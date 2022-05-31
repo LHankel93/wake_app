@@ -41,8 +41,12 @@ public class Calculator {
 		
 		totalTimeHour = arriveTimeHour-totalTimeHour;
 		
+		String ZielStringed = totalTimeHour + " : " + totalTimeMinute;
 		
+		//Test für Funktionalität der Rechnung
 		//System.out.println(totalTimeHour+ ":"+totalTimeMinute);
+		
+		mainWindow.getLblHilfeTextZeit().setText(ZielStringed);
 		
 	 
 		
