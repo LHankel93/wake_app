@@ -178,6 +178,8 @@ public class Hauptansicht extends JFrame {
 		btn_Berechnen.setFont(new Font("Arial", Font.PLAIN, 12));
 		btn_Berechnen.setBackground(new Color(138, 43, 226));
 		panelWeckerErstellen.add(btn_Berechnen);
+		
+		
 
 		JLabel label_FettWakeApp = new JLabel("WakeApp");
 		label_FettWakeApp.setFont(new Font("Arial", Font.BOLD, 20));
@@ -481,12 +483,13 @@ public class Hauptansicht extends JFrame {
 	 */
 	public void berechnen() {
 		// TODO Hier die Methode von Gökmen zur Weckzeitberechnung aufrufen.
-		lblHilfeTextZeit.setText("UwU"); // so wird das Label gefüllt
+		//lblHilfeTextZeit.setText("UwU"); // so wird das Label gefüllt
 		// TODO Der Quellcode muss hier noch angepasst werden, damit die
 		// lblHilfeTextZeit.setText(calculator.TimerCalculator(FRAMEBITS, ERROR,
 		// ALLBITS, ABORT);
 		// Wenn Zeit korrekt berechnet, dann den Button für Hinzufügen freigeben.
 		// (btnWeckerHinzufgen)
+		calculator.TimerCalculator();
 
 	}
 }
