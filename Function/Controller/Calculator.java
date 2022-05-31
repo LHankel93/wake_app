@@ -9,15 +9,24 @@ import view.Hauptansicht;
 
 public class Calculator {
 
-	public static void TimerCalculator() {
+	private Hauptansicht mainWindow;
 	
-		Hauptansicht mainWindow = new Hauptansicht();
-		int arriveTimeHour = Integer.parseInt(mainWindow.getTxtAnkunftStunden().toString());
-		int arriveTimeMinute = Integer.parseInt(mainWindow.getTxtAnkunftMinuten().toString());
-		int preperationTimeHour = Integer.parseInt(mainWindow.getTxtFertigmachenStunden().toString());
-		int preperationTimeMinute = Integer.parseInt(mainWindow.getTxtFertigmachenMinuten().toString());
-		int travelTimeMinute=Integer.parseInt(mainWindow.getTxtFahrenMinuten().toString());
-		int travelTimeHour = Integer.parseInt(mainWindow.getTxtFahrenStunden().toString());
+
+	public  Calculator(Hauptansicht mainWindow) {
+	
+	this.mainWindow = mainWindow;
+	 
+		
+	}
+	
+	public void Rechnung() {
+		
+		int arriveTimeHour = Integer.parseInt(mainWindow.getTxtAnkunftStunden().getText());
+		int arriveTimeMinute = Integer.parseInt(mainWindow.getTxtAnkunftMinuten().getText());
+		int preperationTimeHour = Integer.parseInt(mainWindow.getTxtFertigmachenStunden().getText());
+		int preperationTimeMinute = Integer.parseInt(mainWindow.getTxtFertigmachenMinuten().getText());
+		int travelTimeMinute= Integer.parseInt(mainWindow.getTxtFahrenMinuten().getText());
+		int travelTimeHour = Integer.parseInt(mainWindow.getTxtFahrenStunden().getText());
 
 	
 		int totalTimeHour =travelTimeHour+ preperationTimeHour;
@@ -46,9 +55,8 @@ public class Calculator {
 		//Test für Funktionalität der Rechnung
 		//System.out.println(totalTimeHour+ ":"+totalTimeMinute);
 		
-		mainWindow.getLblHilfeTextZeit().setText(ZielStringed);
-		
-	 
+		//mainWindow.getLblHilfeTextZeit().setText(ZielStringed);
+		mainWindow.lblHilfeTextZeit.setText(ZielStringed);
 		
 	}
 }
