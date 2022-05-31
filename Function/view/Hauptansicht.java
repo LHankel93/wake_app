@@ -26,14 +26,14 @@ public class Hauptansicht extends JFrame {
 	private JTextField txtFertigmachenMinuten;
 	private JTextField txtWohnort;
 	private JTextField txtZielort;
-	private JTextField txtFertigmachenStunden;
-	private JTextField txtAnkunftMinuten;
-	private JTextField txtAnkunftStunden;
-	private JTextField txtFahrenStunden;
-	private JTextField txtFahrenMinuten;
+	private	JTextField txtFertigmachenStunden;
+	private  JTextField txtAnkunftMinuten;
+	private  JTextField txtAnkunftStunden;
+	private  JTextField txtFahrenStunden;
+	private  JTextField txtFahrenMinuten;
 	private JTextField text_Name;
 	// manuell hinzugefügte Attribute
-	private JLabel lblHilfeTextZeit;
+	public JLabel lblHilfeTextZeit;
 	public Calculator calculator;
 	private JButton btnWeckerHinzufgen;
 
@@ -70,6 +70,15 @@ public class Hauptansicht extends JFrame {
 		btn_Berechnen.setFont(new Font("Arial", Font.PLAIN, 12));
 		btn_Berechnen.setBackground(new Color(138, 43, 226));
 		panelWeckerErstellen.add(btn_Berechnen);
+		
+		btn_Berechnen.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent click) {
+				
+				Calculator.TimerCalculator();
+			}
+		});
+		
 
 		JLabel label_FettWakeApp = new JLabel("WakeApp");
 		label_FettWakeApp.setFont(new Font("Arial", Font.BOLD, 20));
