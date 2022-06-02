@@ -16,7 +16,7 @@ public class newMain {
 		CSVHandler csv = new CSVHandler();
 		ArrayList<Wecker> liste = new ArrayList<Wecker>();
 		liste.add(wecker);
-		csv.weckerSpeichern(liste);
+		csv.weckerListeSpeichern(liste);
 		ArrayList<Wecker> weckerLesenListe = csv.weckerLaden();
 
 		for (Wecker i : weckerLesenListe) {

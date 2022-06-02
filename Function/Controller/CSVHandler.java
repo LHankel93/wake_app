@@ -10,10 +10,26 @@ import java.util.ArrayList;
 
 import model.Wecker;
 
+/**
+ * Eine Klasse, welche für die Verwaltung von der lokalen CSV Datei zum lesen
+ * und schreiben verantwortlich ist.
+ * 
+ * @author Lorenz Hankel
+ * @version v0.0.1 02.06.2022
+ *
+ */
 public class CSVHandler {
+	// Statische Variablen für diesen Handler deklarieren und initialisieren.
 	private static char delimiter = ';';
+	private static String dateiname = "gespeicherte_Wecker.csv";
 
-	public ArrayList<Wecker> weckerLaden() { // soll noch Wecker werden
+	/**
+	 * Liest die lokale CSV Datei aus und gibt eine ArrayList mit allen Weckern
+	 * zurück.
+	 * 
+	 * @return Eine ArrayList mit Wecker-Objekten.
+	 */
+	public ArrayList<Wecker> weckerLaden() {
 		ArrayList<Wecker> savedWecker = new ArrayList<Wecker>();
 
 		try {
@@ -37,9 +53,27 @@ public class CSVHandler {
 
 	}
 
-	public static void weckerSpeichern(ArrayList<Wecker> wecker) {
+	/**
+	 * Diese Methode speichert ein einzelnes Wecker-Objekt in der CSV Datei.
+	 * 
+	 * @param wecker Wecker-Objekt, welches gespeichert werden soll.
+	 */
+	public void weckerSpeichern(Wecker wecker) {
 
-		String dateiname = "gespeicherte_Wecker.csv";
+		// bestehende CSV Datei auslesen.
+		ArrayList<Wecker> liste = weckerLaden();
+		// Neues Wecker-Objekt der Liste anfügen.
+		liste.add(wecker);
+		// Neue Liste in CSV Datei speichern. Überschreibt die alte Datei mit der Neuen.
+		weckerListeSpeichern(liste);
+	}
+
+	/**
+	 * Speichert eine ArrayList mit Wecker-Objekten in der csv Datei.
+	 * 
+	 * @param wecker Eine ArrayList mit Wecker-Objekten zum speichern.
+	 */
+	public void weckerListeSpeichern(ArrayList<Wecker> wecker) {
 
 		try (PrintWriter writer = new PrintWriter(new File(dateiname))) {
 
@@ -69,17 +103,6 @@ public class CSVHandler {
 				sb.append(delimiter);
 				sb.append('\n');
 			}
-//			sb.append("id");
-//			sb.append(delimiter);
-//			sb.append('\n');
-//
-//			sb.append("101");
-//			sb.append(',');
-//			sb.append("John Doe");
-//			sb.append(',');
-//			sb.append("Las Vegas");
-//			sb.append('\n');
-
 			writer.write(sb.toString());
 			writer.close();
 			System.out.println("done!");

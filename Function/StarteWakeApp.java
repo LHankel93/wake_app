@@ -1,34 +1,32 @@
 import java.awt.EventQueue;
-
 import Controller.CSVHandler;
 import Controller.Calculator;
 import view.Hauptansicht;
 
 /**
- * Diese Klasse stellt eine main Methode dar, um die GUI Hauptansicht zu starten
- * und zu testen.
+ * Diese Klasse stellt die Starter-Klasse für die WakeApp dar.
  * 
  * @author Lorenz Hankel
- * @version v0.0.1
- * 
+ * @version v0.0.1 02.06.2022
  *
  */
-public class TesteHauptansicht {
+public class StarteWakeApp {
 
 	/**
-	 * Die Main Methode zum Testen der Hauptansicht.
+	 * Main Methode zum eigentlichen Starten der WakeApp.
 	 * 
-	 * @param args
+	 * @param args Übergebene Parameter, kann ignoriert werden.
 	 */
 	public static void main(String[] args) {
-		// Copy & Paste aus der Auto-Generierten Window Builder Methode.
+		// JFrame initialisieren
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					// Wichtige Objekte initialisieren, deklarieren und den entsprechende
+					// Konstruktoren übergeben.
 					CSVHandler csv = new CSVHandler();
 					Hauptansicht frame = new Hauptansicht(csv);
 					Calculator ctr = new Calculator(frame);
-				
 					frame.setCalculator(ctr);
 					frame.setVisible(true);
 				} catch (Exception e) {
