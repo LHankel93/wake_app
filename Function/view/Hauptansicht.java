@@ -70,7 +70,7 @@ public class Hauptansicht extends JFrame {
 	public JTextField getText_Name() {
 		return text_Name;
 	}
-
+	
 	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
 		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
 	}
@@ -120,7 +120,7 @@ public class Hauptansicht extends JFrame {
 	public JLabel getLblHilfeTextZeit() {
 		return lblHilfeTextZeit;
 	}
-
+	
 	public Calculator getCalculator() {
 		return calculator;
 	}
@@ -402,7 +402,7 @@ public class Hauptansicht extends JFrame {
 				panelWeckerErstellen);
 		btnWeckerHinzufgen.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(btnWeckerHinzufgen);
-		//Button für den Oberen Schriftzug da ein Label sich ncht entsprächent Formatieren lässt
+		//Button für den Oberen Schriftzug da ein Label sich nicht entsprächent Formatieren lässt
 		JButton btnWeckapp = new JButton("WakeApp");
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_FettWakeApp, 6, SpringLayout.SOUTH, btnWeckapp);
 		btnWeckapp.setEnabled(false);
