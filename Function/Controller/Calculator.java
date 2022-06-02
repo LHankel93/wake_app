@@ -11,6 +11,11 @@ import view.Hauptansicht;
  * @version 1.00
  */
 
+/**
+ * 
+ *Haubtansicht mit Konstruktor verbinden
+ *
+ */
 public class Calculator {
 
 	private Hauptansicht mainWindow;
@@ -22,7 +27,9 @@ public class Calculator {
 	 
 		
 	}
-	
+	/**
+	 * Fuktion zum berechnen der Startzeit
+	 */
 	public void Rechnung() {
 		
 		int arriveTimeHour = Integer.parseInt(mainWindow.getTxtAnkunftStunden().getText());
