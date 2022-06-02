@@ -474,6 +474,7 @@ public class Hauptansicht extends JFrame {
 				}
 				case "wecker hinzufuegen": {
 					//Hier soll der Wecker der CSV Datei hinzugefügt werden.
+					// TODO Die korrekten Felder abrufen und statt meiner Beispiel-Daten als Parameter übergeben!
 					csv.weckerSpeichern(new Wecker("Ein Test Wecker", 8, 30, 0, 45, 1, 0, "Start Adresse", "Ziel Adresse", 6, 0));
 					break;
 				}
