@@ -1,5 +1,9 @@
 package Controller;
 import java.time.*;
+
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 import view.Hauptansicht;
 /**
  * 
@@ -32,8 +36,51 @@ public class Calculator {
 		int totalTimeHour =travelTimeHour+ preperationTimeHour;
 		int totalTimeMinute = travelTimeMinute+ preperationTimeMinute;
 		int staticTime = 60;
+		int staticResetTime = 24;
 		int addTime=0;
+		boolean error=false;
 		
+
+		String Message = "";
+		
+		if(		arriveTimeHour < 0|
+				travelTimeHour<0 |
+				travelTimeMinute<0|
+				preperationTimeHour<0|
+				preperationTimeMinute<0|
+				arriveTimeMinute<0) {
+			try {
+				Message = "unzulässige Eingabe";
+				JOptionPane.showMessageDialog(mainWindow, Message);
+				error=true;
+			}catch(Exception e) {
+				
+			}
+		}
+		
+		if(arriveTimeHour >= 24 ) {
+			try {
+				Message = "die Ankunftzeit existiert nicht";
+				JOptionPane.showMessageDialog(mainWindow, Message);
+				error=true;
+				
+				
+			} catch (Exception e) {
+			}
+		}
+		
+		if(arriveTimeMinute >= 60) {
+			try {
+				Message = "die Ankunftzeit existiert nicht";
+				JOptionPane.showMessageDialog(mainWindow, Message);
+				error=true;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		
+		if(!error) {
 		for(int i =0;totalTimeMinute>= staticTime;i++) {
 			totalTimeMinute-=staticTime;
 			addTime++;
@@ -50,7 +97,17 @@ public class Calculator {
 		
 		totalTimeHour = arriveTimeHour-totalTimeHour;
 		
-		String ZielStringed = totalTimeHour + " : " + totalTimeMinute;
+		if(totalTimeHour < 0 ) {
+		 totalTimeHour=	totalTimeHour+ staticResetTime;
+		}
+		
+		String newValue ="";
+		
+		if(totalTimeMinute <10 || totalTimeMinute>0) {
+			 newValue = String.format("%02d", totalTimeMinute);
+		}
+		
+		String ZielStringed = totalTimeHour + " : " + newValue;
 		
 		//Test für Funktionalität der Rechnung
 		//System.out.println(totalTimeHour+ ":"+totalTimeMinute);
@@ -58,5 +115,6 @@ public class Calculator {
 		//mainWindow.getLblHilfeTextZeit().setText(ZielStringed);
 		mainWindow.lblHilfeTextZeit.setText(ZielStringed);
 		
+	}
 	}
 }
