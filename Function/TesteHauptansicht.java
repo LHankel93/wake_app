@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+
+import Controller.Calculator;
 import view.Hauptansicht;
 
 /**
@@ -23,6 +25,10 @@ public class TesteHauptansicht {
 			public void run() {
 				try {
 					Hauptansicht frame = new Hauptansicht();
+				
+					Calculator ctr = new Calculator(frame);
+				
+					frame.setCalculator(ctr);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

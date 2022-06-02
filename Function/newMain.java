@@ -1,14 +1,17 @@
 import Controller.Calculator;
+import view.Hauptansicht;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class newMain {
 
 	public static void main(String[] args) {
+		//
+	
 		
-		int startHour,endHour,startMinute,endMinute;
-		//Die methode zum berechnen der benötigten Zeit
-		//Calculator.TimerCalculator(startHour, startMinute,endHour,endMinute);
 	}
-
+ 
 	
 
 }

@@ -20,6 +20,8 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import Controller.*;
 import model.Wecker;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 /**
  * Diese Klasse ist zum erzeugen der GUIs da
  * 
@@ -33,6 +35,78 @@ public class Hauptansicht extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtFertigmachenMinuten;
+	public JTextField getTxtFertigmachenMinuten() {
+		return txtFertigmachenMinuten;
+	}
+
+	public JTextField getTxtWohnort() {
+		return txtWohnort;
+	}
+
+	public JTextField getTxtZielort() {
+		return txtZielort;
+	}
+
+	public JTextField getTxtFertigmachenStunden() {
+		return txtFertigmachenStunden;
+	}
+
+	public JTextField getTxtAnkunftMinuten() {
+		return txtAnkunftMinuten;
+	}
+
+	public JTextField getTxtAnkunftStunden() {
+		return txtAnkunftStunden;
+	}
+
+	public JTextField getTxtFahrenStunden() {
+		return txtFahrenStunden;
+	}
+
+	public JTextField getTxtFahrenMinuten() {
+		return txtFahrenMinuten;
+	}
+
+	public JTextField getText_Name() {
+		return text_Name;
+	}
+
+	public void setTxtFertigmachenMinuten(JTextField txtFertigmachenMinuten) {
+		this.txtFertigmachenMinuten = txtFertigmachenMinuten;
+	}
+
+	public void setTxtWohnort(JTextField txtWohnort) {
+		this.txtWohnort = txtWohnort;
+	}
+
+	public void setTxtZielort(JTextField txtZielort) {
+		this.txtZielort = txtZielort;
+	}
+
+	public void setTxtFertigmachenStunden(JTextField txtFertigmachenStunden) {
+		this.txtFertigmachenStunden = txtFertigmachenStunden;
+	}
+
+	public void setTxtAnkunftMinuten(JTextField txtAnkunftMinuten) {
+		this.txtAnkunftMinuten = txtAnkunftMinuten;
+	}
+
+	public void setTxtAnkunftStunden(JTextField txtAnkunftStunden) {
+		this.txtAnkunftStunden = txtAnkunftStunden;
+	}
+
+	public void setTxtFahrenStunden(JTextField txtFahrenStunden) {
+		this.txtFahrenStunden = txtFahrenStunden;
+	}
+
+	public void setTxtFahrenMinuten(JTextField txtFahrenMinuten) {
+		this.txtFahrenMinuten = txtFahrenMinuten;
+	}
+
+	public void setText_Name(JTextField text_Name) {
+		this.text_Name = text_Name;
+	}
+
 	private JTextField txtWohnort;
 	private JTextField txtZielort;
 	private JTextField txtFertigmachenStunden;
@@ -42,7 +116,31 @@ public class Hauptansicht extends JFrame {
 	private JTextField txtFahrenMinuten;
 	private JTextField text_Name;
 	// manuell hinzugefügte Attribute
-	private JLabel lblHilfeTextZeit;
+	public JLabel lblHilfeTextZeit;
+	public JLabel getLblHilfeTextZeit() {
+		return lblHilfeTextZeit;
+	}
+
+	public Calculator getCalculator() {
+		return calculator;
+	}
+
+	public JButton getBtnWeckerHinzufgen() {
+		return btnWeckerHinzufgen;
+	}
+
+	public void setLblHilfeTextZeit(JLabel lblHilfeTextZeit) {
+		this.lblHilfeTextZeit = lblHilfeTextZeit;
+	}
+
+	public void setCalculator(Calculator calculator) {
+		this.calculator = calculator;
+	}
+
+	public void setBtnWeckerHinzufgen(JButton btnWeckerHinzufgen) {
+		this.btnWeckerHinzufgen = btnWeckerHinzufgen;
+	}
+
 	public Calculator calculator;
 	private JButton btnWeckerHinzufgen;
 
@@ -51,13 +149,13 @@ public class Hauptansicht extends JFrame {
 	 */
 	public Hauptansicht() {
 		// Wecker Rechner initialisieren und deklarieren.
-		calculator = new Calculator();
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Hauptansicht.class.getResource("/img/app_icon.png")));
 		setTitle("Wake App");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 442, 640);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	//	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.X_AXIS));
 
@@ -79,6 +177,8 @@ public class Hauptansicht extends JFrame {
 		btn_Berechnen.setFont(new Font("Arial", Font.PLAIN, 12));
 		btn_Berechnen.setBackground(new Color(138, 43, 226));
 		panelWeckerErstellen.add(btn_Berechnen);
+		
+		
 
 		JLabel label_FettWakeApp = new JLabel("WakeApp");
 		label_FettWakeApp.setFont(new Font("Arial", Font.BOLD, 20));
@@ -118,7 +218,7 @@ public class Hauptansicht extends JFrame {
 				panelWeckerErstellen);
 		txtFertigmachenMinuten.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFertigmachenMinuten.setForeground(new Color(192, 192, 192));
-		txtFertigmachenMinuten.setText("Minuten");
+		txtFertigmachenMinuten.setText("");
 		panelWeckerErstellen.add(txtFertigmachenMinuten);
 		txtFertigmachenMinuten.setColumns(10);
 
@@ -162,7 +262,7 @@ public class Hauptansicht extends JFrame {
 				label_zwischen);
 		txtFertigmachenStunden.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFertigmachenStunden.setForeground(new Color(192, 192, 192));
-		txtFertigmachenStunden.setText("Stunden");
+		txtFertigmachenStunden.setText("");
 		panelWeckerErstellen.add(txtFertigmachenStunden);
 		txtFertigmachenStunden.setColumns(10);
 		//RadioButtons zu Wahl zwischen ÖPNV und Auto
@@ -222,7 +322,7 @@ public class Hauptansicht extends JFrame {
 				label_zwischen_1);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtAnkunftMinuten, -24, SpringLayout.EAST,
 				panelWeckerErstellen);
-		txtAnkunftMinuten.setText("Minuten");
+		txtAnkunftMinuten.setText("");
 		txtAnkunftMinuten.setForeground(Color.LIGHT_GRAY);
 		txtAnkunftMinuten.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtAnkunftMinuten.setColumns(10);
@@ -235,49 +335,44 @@ public class Hauptansicht extends JFrame {
 				txtFertigmachenStunden);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtAnkunftStunden, 0, SpringLayout.EAST,
 				txtFertigmachenStunden);
-		txtAnkunftStunden.setText("Stunden");
+		txtAnkunftStunden.setText("");
 		txtAnkunftStunden.setForeground(Color.LIGHT_GRAY);
 		txtAnkunftStunden.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtAnkunftStunden.setColumns(10);
 		panelWeckerErstellen.add(txtAnkunftStunden);
 
 		JLabel lblNewLabel_2 = new JLabel("Fahrzeit:");
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 6, SpringLayout.SOUTH, label_Fertigmachzeit);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, lblNewLabel_2, -10, SpringLayout.EAST, label_Fertigmachzeit);
 		lblNewLabel_2.setFont(new Font("Arial", Font.PLAIN, 12));
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 25, SpringLayout.SOUTH,
-				label_Fertigmachzeit);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, lblNewLabel_2, 0, SpringLayout.WEST,
-				label_Ankunftszeit);
 		panelWeckerErstellen.add(lblNewLabel_2);
 
 		txtFahrenStunden = new JTextField();
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, txtFahrenStunden, 0, SpringLayout.NORTH,
-				lblNewLabel_2);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, txtFahrenStunden, 22, SpringLayout.SOUTH, txtFertigmachenMinuten);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtFahrenStunden, 0, SpringLayout.WEST,
 				txtFertigmachenStunden);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFahrenStunden, -93, SpringLayout.EAST,
 				panelWeckerErstellen);
-		txtFahrenStunden.setText("Stunden");
+		txtFahrenStunden.setText("");
 		txtFahrenStunden.setForeground(Color.LIGHT_GRAY);
 		txtFahrenStunden.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFahrenStunden.setColumns(10);
 		panelWeckerErstellen.add(txtFahrenStunden);
 
 		txtFahrenMinuten = new JTextField();
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, txtFahrenMinuten, 0, SpringLayout.NORTH,
-				lblNewLabel_2);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, txtFahrenMinuten, 22, SpringLayout.SOUTH, txtFertigmachenMinuten);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtFahrenMinuten, 0, SpringLayout.WEST,
 				txtFertigmachenMinuten);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFahrenMinuten, -23, SpringLayout.EAST,
 				panelWeckerErstellen);
-		txtFahrenMinuten.setText("Minuten");
+		txtFahrenMinuten.setText("");
 		txtFahrenMinuten.setForeground(Color.LIGHT_GRAY);
 		txtFahrenMinuten.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFahrenMinuten.setColumns(10);
 		panelWeckerErstellen.add(txtFahrenMinuten);
 
 		JLabel label_zwischen_2 = new JLabel(":");
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_zwischen_2, 0, SpringLayout.NORTH,
-				lblNewLabel_2);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_zwischen_2, 25, SpringLayout.SOUTH, label_zwischen);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_zwischen_2, 0, SpringLayout.WEST,
 				label_zwischen);
 		label_zwischen_2.setForeground(Color.BLACK);
@@ -387,12 +482,17 @@ public class Hauptansicht extends JFrame {
 	 */
 	public void berechnen() {
 		// TODO Hier die Methode von Gökmen zur Weckzeitberechnung aufrufen.
-		lblHilfeTextZeit.setText("UwU"); // so wird das Label gefüllt
+		//lblHilfeTextZeit.setText("UwU"); // so wird das Label gefüllt
 		// TODO Der Quellcode muss hier noch angepasst werden, damit die
 		// lblHilfeTextZeit.setText(calculator.TimerCalculator(FRAMEBITS, ERROR,
 		// ALLBITS, ABORT);
 		// Wenn Zeit korrekt berechnet, dann den Button für Hinzufügen freigeben.
-		// (btnWeckerHinzufgen)
+		// (btnWeckerHinzufügen)
+		
+		this.getCalculator().Rechnung();
+		
 
 	}
+	
+	
 }
