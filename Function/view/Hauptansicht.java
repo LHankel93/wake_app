@@ -449,10 +449,6 @@ public class Hauptansicht extends JFrame {
 
 		// Liste erzeugen um dynamisch die Buttons zu erzeugen
 		ArrayList<Wecker> weckerListe = csv.weckerLaden();
-		//ArrayList<Integer> testListe = new ArrayList<Integer>();
-		//testListe.add(1);
-		//testListe.add(2);
-		//testListe.add(3);
 		int j = 0;//Variable zum Label Anortnen
 		for (Wecker i : weckerListe) {
 				j++;
@@ -499,9 +495,9 @@ public class Hauptansicht extends JFrame {
 					break;
 				}
 				case "wecker hinzufuegen": {
-					//Hier soll der Wecker der CSV Datei hinzugefügt werden.
-					// TODO Die korrekten Felder abrufen und statt meiner Beispiel-Daten als Parameter übergeben!
-					speicherwecker();
+					//Aufruf der funktion zum speichern der Daten
+					//Übergabe von CSV da in der neuen funktion die Variable sonst nicht exestiert
+					speicherwecker(csv);
 					break;
 				}
 				}
@@ -526,11 +522,12 @@ public class Hauptansicht extends JFrame {
 		this.getCalculator().Rechnung();
 	}
 	
-	public void speicherwecker() {
+	public void speicherwecker(CSVHandler csv) {
+		//String Variable die in die CSV sollen
 		String s_name = String.valueOf(this.getText_Name().getText());
 		String s_zielort = String.valueOf(this.getTxtZielort().getText());
 		String s_startort = String.valueOf(this.getTxtWohnort().getText());
-		
+		//Int Variablen die in die CSV sollen
 		int arriveTimeHour = Integer.parseInt(this.getTxtAnkunftStunden().getText());
 		int arriveTimeMinute = Integer.parseInt(this.getTxtAnkunftMinuten().getText());
 		int preperationTimeHour = Integer.parseInt(this.getTxtFertigmachenStunden().getText());
@@ -539,6 +536,8 @@ public class Hauptansicht extends JFrame {
 		int travelTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
 		int weckTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
 		int weckTimeMinute =Integer.parseInt(this.getTxtFahrenStunden().getText());
+		//Weckzeit
+		//Aus einen String ein Integer vormen
 		String s_zeit=String.valueOf(this.getLblHilfeTextZeit().getText());
 		String split[] = s_zeit.split(" ", 0); 
 		int ankunftTimeHour=0;
@@ -552,8 +551,7 @@ public class Hauptansicht extends JFrame {
 			ankunftTimeMinute=Integer.parseInt(split[3]);
 			}
 		zahl++;}
-
-		
+		//Speichern
 		csv.weckerSpeichern(new Wecker(s_name, arriveTimeHour, arriveTimeMinute, travelTimeHour, travelTimeMinute, preperationTimeHour, preperationTimeMinute, s_zielort, s_startort, ankunftTimeHour, ankunftTimeMinute));
 	} 
 			 
