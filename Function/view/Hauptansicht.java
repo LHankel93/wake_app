@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -191,6 +193,7 @@ public class Hauptansicht extends JFrame {
 		panelWeckerErstellen.add(label_FettWakeApp);
 
 		JLabel label_Ankunftszeit = new JLabel("Ankunftszeit:");
+		label_Ankunftszeit.setBackground(Color.LIGHT_GRAY);
 		label_Ankunftszeit.setFont(new Font("Arial", Font.PLAIN, 12));
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Ankunftszeit, 10, SpringLayout.WEST,
 				panelWeckerErstellen);
@@ -409,6 +412,7 @@ public class Hauptansicht extends JFrame {
 		panelWeckerErstellen.add(lblFortbewegung);
 		// ButtnWecker hinzufügen
 		// Soll bei betätigen den wecker in die CSV speichern
+		//TODO: Speicherfunktion verbinden
 		btnWeckerHinzufgen = new JButton("Wecker hinzufügen");
 		btnWeckerHinzufgen.setForeground(new Color(255, 255, 255));
 		btnWeckerHinzufgen.setBackground(new Color(138, 43, 226));
@@ -444,19 +448,42 @@ public class Hauptansicht extends JFrame {
 		panelWeckerUebersicht.setLayout(sl_panelWeckerUebersicht);
 
 		// Liste erzeugen um dynamisch die Buttons zu erzeugen
-		// ArrayList<Wecker> weckerListe = CSVHandler.weckerLaden();
-		ArrayList<Integer> testListe = new ArrayList<Integer>();
-		testListe.add(1);
-		testListe.add(2);
-		testListe.add(3);
-		for (int i = 0; i < testListe.size(); i++) {
-			String s = String.valueOf(testListe.get(i));
-			JButton btnTest = new JButton(s);
-			sl_panelWeckerUebersicht.putConstraint(SpringLayout.NORTH, btnTest, 10 + (i * 30), SpringLayout.NORTH,
-					panelWeckerUebersicht);
-			sl_panelWeckerUebersicht.putConstraint(SpringLayout.WEST, btnTest, 140, SpringLayout.WEST,
-					panelWeckerUebersicht);
-			panelWeckerUebersicht.add(btnTest);
+		ArrayList<Wecker> weckerListe = csv.weckerLaden();
+		//ArrayList<Integer> testListe = new ArrayList<Integer>();
+		//testListe.add(1);
+		//testListe.add(2);
+		//testListe.add(3);
+		int j = 0;//Variable zum Label Anortnen
+		for (Wecker i : weckerListe) {
+				j++;
+				String name = String.valueOf(i.getName());
+				String weckstunde="";
+				//Weckzeit für den User normal speichern
+				if(i.getWeckzeitStunden()<10 && i.getWeckzeitStunden()>=0) {
+					weckstunde = String.format("%02d", i.getWeckzeitStunden());
+				}
+				String weckminute = "";
+				if(i.getWeckzeitMinuten()<10 && i.getWeckzeitMinuten()>=0) {
+					weckminute = String.format("%02d", i.getWeckzeitMinuten());
+				}
+				//Stringausgabe vorbereiten
+				String uhrzeit = weckstunde+":"+ weckminute;
+				String ausgabe = name + " Weckzeit: "+ uhrzeit;
+				System.out.println(weckminute);
+				//Label für die Wecker
+				JLabel lblUebersichtwecker = new JLabel(ausgabe);
+				
+				Border border = BorderFactory.createLineBorder(Color.LIGHT_GRAY,2 );
+				lblUebersichtwecker.setBorder(border);
+				
+				sl_panelWeckerUebersicht.putConstraint(SpringLayout.NORTH, lblUebersichtwecker, 10 + (j * 30), SpringLayout.NORTH,
+						panelWeckerUebersicht);
+				sl_panelWeckerUebersicht.putConstraint(SpringLayout.WEST, lblUebersichtwecker, 40, SpringLayout.WEST,
+						panelWeckerUebersicht);
+				sl_panelWeckerUebersicht.putConstraint(SpringLayout.EAST, lblUebersichtwecker, -40, SpringLayout.EAST,
+						panelWeckerUebersicht);
+				panelWeckerUebersicht.add(lblUebersichtwecker);	
+
 		}
 
 		// Action Listener implementieren
