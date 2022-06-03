@@ -413,7 +413,6 @@ public class Hauptansicht extends JFrame {
 		panelWeckerErstellen.add(lblFortbewegung);
 		// ButtnWecker hinzufügen
 		// Soll bei betätigen den wecker in die CSV speichern
-		// TODO: Speicherfunktion verbinden
 		btnWeckerHinzufgen = new JButton("Wecker hinzufügen");
 		btnWeckerHinzufgen.setForeground(new Color(255, 255, 255));
 		btnWeckerHinzufgen.setBackground(new Color(138, 43, 226));
@@ -510,7 +509,6 @@ public class Hauptansicht extends JFrame {
 
 			@Override
 			public void stateChanged(ChangeEvent e) {
-				// TODO Uebersicht updaten on Tab-Change.
 				panelWeckerUebersicht.removeAll();
 				panelWeckerUebersicht.updateUI();
 				uebersichtErzeugen(sl_panelWeckerUebersicht, panelWeckerUebersicht);
@@ -568,8 +566,8 @@ public class Hauptansicht extends JFrame {
 	}
 
 	/**
-	 * 
-	 * @param csv
+	 * Diese Funktion speichert einen Wecker in der CSV Datei.
+	 * @param csv der CSVHandler.
 	 */
 	public void speicherwecker(CSVHandler csv) {
 		// String Variable die in die CSV sollen
@@ -583,12 +581,6 @@ public class Hauptansicht extends JFrame {
 		int preperationTimeMinute = Integer.parseInt(this.getTxtFertigmachenMinuten().getText());
 		int travelTimeMinute = Integer.parseInt(this.getTxtFahrenMinuten().getText());
 		int travelTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
-//		int weckTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
-//		int weckTimeMinute = Integer.parseInt(this.getTxtFahrenStunden().getText());
-		String weckzeitString = this.getLblHilfeTextZeit().getText();
-		String weckZeitArray[] = weckzeitString.split(":", 0);
-//		int weckTimeHour = Integer.parseInt(weckZeitArray[0] = this.getLblHilfeTextZeit().getText());
-//		int weckTimeMinute = Integer.parseInt(this.getTxtFahrenStunden().getText());
 		// Weckzeit
 		// Aus einen String ein Integer vormen
 		String s_zeit = String.valueOf(this.getLblHilfeTextZeit().getText());
