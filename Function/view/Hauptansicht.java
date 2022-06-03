@@ -225,7 +225,7 @@ public class Hauptansicht extends JFrame {
 				panelWeckerErstellen);
 		txtFertigmachenMinuten.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFertigmachenMinuten.setForeground(new Color(192, 192, 192));
-		txtFertigmachenMinuten.setText("");
+		txtFertigmachenMinuten.setText("30");
 		panelWeckerErstellen.add(txtFertigmachenMinuten);
 		txtFertigmachenMinuten.setColumns(10);
 
@@ -233,7 +233,7 @@ public class Hauptansicht extends JFrame {
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_Wohnort, 3, SpringLayout.NORTH, txtWohnort);
 		txtWohnort.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtWohnort.setForeground(new Color(192, 192, 192));
-		txtWohnort.setText("Adresse");
+		txtWohnort.setText("Start-Adresse");
 		panelWeckerErstellen.add(txtWohnort);
 		txtWohnort.setColumns(10);
 
@@ -247,7 +247,7 @@ public class Hauptansicht extends JFrame {
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtWohnort, 0, SpringLayout.EAST, txtZielort);
 		txtZielort.setForeground(new Color(192, 192, 192));
 		txtZielort.setFont(new Font("Arial", Font.PLAIN, 12));
-		txtZielort.setText("Adresse");
+		txtZielort.setText("Ziel-Adresse");
 		panelWeckerErstellen.add(txtZielort);
 		txtZielort.setColumns(10);
 
@@ -267,7 +267,7 @@ public class Hauptansicht extends JFrame {
 				label_zwischen);
 		txtFertigmachenStunden.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFertigmachenStunden.setForeground(new Color(192, 192, 192));
-		txtFertigmachenStunden.setText("");
+		txtFertigmachenStunden.setText("0");
 		panelWeckerErstellen.add(txtFertigmachenStunden);
 		txtFertigmachenStunden.setColumns(10);
 		// RadioButtons zu Wahl zwischen ÖPNV und Auto
@@ -328,7 +328,7 @@ public class Hauptansicht extends JFrame {
 				label_zwischen_1);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtAnkunftMinuten, -24, SpringLayout.EAST,
 				panelWeckerErstellen);
-		txtAnkunftMinuten.setText("");
+		txtAnkunftMinuten.setText("00");
 		txtAnkunftMinuten.setForeground(Color.LIGHT_GRAY);
 		txtAnkunftMinuten.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtAnkunftMinuten.setColumns(10);
@@ -343,7 +343,7 @@ public class Hauptansicht extends JFrame {
 				txtFertigmachenStunden);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtAnkunftStunden, 0, SpringLayout.EAST,
 				txtFertigmachenStunden);
-		txtAnkunftStunden.setText("");
+		txtAnkunftStunden.setText("12");
 		txtAnkunftStunden.setForeground(Color.LIGHT_GRAY);
 		txtAnkunftStunden.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtAnkunftStunden.setColumns(10);
@@ -365,7 +365,7 @@ public class Hauptansicht extends JFrame {
 				txtFertigmachenStunden);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFahrenStunden, -93, SpringLayout.EAST,
 				panelWeckerErstellen);
-		txtFahrenStunden.setText("");
+		txtFahrenStunden.setText("0");
 		txtFahrenStunden.setForeground(Color.LIGHT_GRAY);
 		txtFahrenStunden.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFahrenStunden.setColumns(10);
@@ -378,7 +378,7 @@ public class Hauptansicht extends JFrame {
 				txtFertigmachenMinuten);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFahrenMinuten, -23, SpringLayout.EAST,
 				panelWeckerErstellen);
-		txtFahrenMinuten.setText("");
+		txtFahrenMinuten.setText("30");
 		txtFahrenMinuten.setForeground(Color.LIGHT_GRAY);
 		txtFahrenMinuten.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFahrenMinuten.setColumns(10);
@@ -546,14 +546,10 @@ public class Hauptansicht extends JFrame {
 			j++;
 			String name = String.valueOf(i.getName());
 			String weckstunde = "";
-			// Weckzeit für den User normal speichern
-			if (i.getWeckzeitStunden() < 10 && i.getWeckzeitStunden() >= 0) {
-				weckstunde = String.format("%02d", i.getWeckzeitStunden());
-			}
 			String weckminute = "";
-			if (i.getWeckzeitMinuten() < 10 && i.getWeckzeitMinuten() >= 0) {
-				weckminute = String.format("%02d", i.getWeckzeitMinuten());
-			}
+			// Weckzeit für den User normal speichern
+			weckstunde = String.format("%02d", i.getWeckzeitStunden());
+			weckminute = String.format("%02d", i.getWeckzeitMinuten());
 			// Stringausgabe vorbereiten
 			String uhrzeit = weckstunde + ":" + weckminute;
 			String ausgabe = name + " Weckzeit: " + uhrzeit;
@@ -573,6 +569,10 @@ public class Hauptansicht extends JFrame {
 		}
 	}
 
+	/**
+	 * 
+	 * @param csv
+	 */
 	public void speicherwecker(CSVHandler csv) {
 		// String Variable die in die CSV sollen
 		String s_name = String.valueOf(this.getText_Name().getText());
@@ -585,36 +585,35 @@ public class Hauptansicht extends JFrame {
 		int preperationTimeMinute = Integer.parseInt(this.getTxtFertigmachenMinuten().getText());
 		int travelTimeMinute = Integer.parseInt(this.getTxtFahrenMinuten().getText());
 		int travelTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
-		int weckTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
-		int weckTimeMinute = Integer.parseInt(this.getTxtFahrenStunden().getText());
+//		int weckTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
+//		int weckTimeMinute = Integer.parseInt(this.getTxtFahrenStunden().getText());
 		String weckzeitString = this.getLblHilfeTextZeit().getText();
 		String weckZeitArray[] = weckzeitString.split(":", 0);
-		String testString = "";
 //		int weckTimeHour = Integer.parseInt(weckZeitArray[0] = this.getLblHilfeTextZeit().getText());
 //		int weckTimeMinute = Integer.parseInt(this.getTxtFahrenStunden().getText());
 		// Weckzeit
 		// Aus einen String ein Integer vormen
 		String s_zeit = String.valueOf(this.getLblHilfeTextZeit().getText());
-		String split[] = s_zeit.split(" ", 0);
+		String split[] = s_zeit.split(":", 0);
 		// Leerzeichen entfernen aus den String Array
 		for (String string : split) {
 			string.replaceAll("\\s+", "");
 		}
-		int ankunftTimeHour = 0;
-		int ankunftTimeMinute = 0;
+		int alarmTimeHour = 0;
+		int alarmTimeMinute = 0;
 		int zahl = 0;
 		for (String s : split) {
 			if (zahl == 0) {
-				ankunftTimeHour = Integer.parseInt(s);
+				alarmTimeHour = Integer.parseInt(s.replace(" ", ""));
 			}
-			if (zahl == 3) {
-				ankunftTimeMinute = Integer.parseInt(split[3]);
+			if (zahl == 2) {
+				alarmTimeMinute = Integer.parseInt(s.replace(" ", ""));
 			}
 			zahl++;
 		}
 		// Speichern
 		csv.weckerSpeichern(new Wecker(s_name, arriveTimeHour, arriveTimeMinute, travelTimeHour, travelTimeMinute,
-				preperationTimeHour, preperationTimeMinute, s_zielort, s_startort, ankunftTimeHour, ankunftTimeMinute));
+				preperationTimeHour, preperationTimeMinute, s_zielort, s_startort, alarmTimeHour, alarmTimeMinute));
 	}
 
 }
