@@ -469,7 +469,6 @@ public class Hauptansicht extends JFrame {
 				//Stringausgabe vorbereiten
 				String uhrzeit = weckstunde+":"+ weckminute;
 				String ausgabe = name + " Weckzeit: "+ uhrzeit;
-				System.out.println(weckminute);
 				//Label für die Wecker
 				JLabel lblUebersichtwecker = new JLabel(ausgabe);
 				
@@ -502,7 +501,7 @@ public class Hauptansicht extends JFrame {
 				case "wecker hinzufuegen": {
 					//Hier soll der Wecker der CSV Datei hinzugefügt werden.
 					// TODO Die korrekten Felder abrufen und statt meiner Beispiel-Daten als Parameter übergeben!
-					csv.weckerSpeichern(new Wecker("Ein Test Wecker", 8, 30, 0, 45, 1, 0, "Start Adresse", "Ziel Adresse", 6, 0));
+					speicherwecker();
 					break;
 				}
 				}
@@ -526,5 +525,37 @@ public class Hauptansicht extends JFrame {
 	public void berechnen() {
 		this.getCalculator().Rechnung();
 	}
+	
+	public void speicherwecker() {
+		String s_name = String.valueOf(this.getText_Name().getText());
+		String s_zielort = String.valueOf(this.getTxtZielort().getText());
+		String s_startort = String.valueOf(this.getTxtWohnort().getText());
+		
+		int arriveTimeHour = Integer.parseInt(this.getTxtAnkunftStunden().getText());
+		int arriveTimeMinute = Integer.parseInt(this.getTxtAnkunftMinuten().getText());
+		int preperationTimeHour = Integer.parseInt(this.getTxtFertigmachenStunden().getText());
+		int preperationTimeMinute = Integer.parseInt(this.getTxtFertigmachenMinuten().getText());
+		int travelTimeMinute= Integer.parseInt(this.getTxtFahrenMinuten().getText());
+		int travelTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
+		int weckTimeHour = Integer.parseInt(this.getTxtFahrenStunden().getText());
+		int weckTimeMinute =Integer.parseInt(this.getTxtFahrenStunden().getText());
+		String s_zeit=String.valueOf(this.getLblHilfeTextZeit().getText());
+		String split[] = s_zeit.split(" ", 0); 
+		int ankunftTimeHour=0;
+		int ankunftTimeMinute=0;
+		int zahl=0;
+		for(String s:split) {
+			if (zahl ==0) {
+			ankunftTimeHour=Integer.parseInt(s);
+			}
+			if(zahl == 3) {
+			ankunftTimeMinute=Integer.parseInt(split[3]);
+			}
+		zahl++;}
 
+		
+		csv.weckerSpeichern(new Wecker(s_name, arriveTimeHour, arriveTimeMinute, travelTimeHour, travelTimeMinute, preperationTimeHour, preperationTimeMinute, s_zielort, s_startort, ankunftTimeHour, ankunftTimeMinute));
+	} 
+			 
+	
 }
