@@ -14,8 +14,8 @@ import model.Wecker;
  * Eine Klasse, welche für die Verwaltung von der lokalen CSV Datei zum lesen
  * und schreiben verantwortlich ist.
  * 
- * @author Lorenz Hankel
- * @version v0.0.1 02.06.2022
+ * @author Lorenz Hankel, Thomas Schädler
+ * @version v0.0.2 03.06.2022
  *
  */
 public class CSVHandler {
