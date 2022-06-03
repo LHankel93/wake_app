@@ -196,25 +196,27 @@ public class Hauptansicht extends JFrame {
 		panelWeckerErstellen.add(label_FettWakeApp);
 
 		JLabel label_Ankunftszeit = new JLabel("Ankunftszeit:");
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Ankunftszeit, 6, SpringLayout.WEST,
+				panelWeckerErstellen);
 		label_Ankunftszeit.setBackground(Color.LIGHT_GRAY);
 		label_Ankunftszeit.setFont(new Font("Arial", Font.PLAIN, 12));
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Ankunftszeit, 10, SpringLayout.WEST,
-				panelWeckerErstellen);
 		panelWeckerErstellen.add(label_Ankunftszeit);
 
 		JLabel label_Fertigmachzeit = new JLabel("Benötigte Zeit zum Fertigmachen");
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Fertigmachzeit, 0, SpringLayout.WEST,
-				btn_Berechnen);
+				label_Ankunftszeit);
 		label_Fertigmachzeit.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(label_Fertigmachzeit);
 
 		JLabel label_Wohnort = new JLabel("Wohnort:");
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Wohnort, 0, SpringLayout.WEST, btn_Berechnen);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Wohnort, 0, SpringLayout.WEST, label_Ankunftszeit);
 		label_Wohnort.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(label_Wohnort);
 
 		JLabel label_Zielort = new JLabel("Zielort:");
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Zielort, 0, SpringLayout.WEST, btn_Berechnen);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_Zielort, 278, SpringLayout.NORTH, panelWeckerErstellen);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, label_Wohnort, -16, SpringLayout.NORTH, label_Zielort);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_Zielort, 0, SpringLayout.WEST, label_Ankunftszeit);
 		label_Zielort.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(label_Zielort);
 
@@ -230,7 +232,8 @@ public class Hauptansicht extends JFrame {
 		txtFertigmachenMinuten.setColumns(10);
 
 		txtWohnort = new JTextField();
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_Wohnort, 3, SpringLayout.NORTH, txtWohnort);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtWohnort, 206, SpringLayout.EAST, label_Wohnort);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtWohnort, 0, SpringLayout.EAST, txtFertigmachenMinuten);
 		txtWohnort.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtWohnort.setForeground(new Color(192, 192, 192));
 		txtWohnort.setText("Start-Adresse");
@@ -238,13 +241,11 @@ public class Hauptansicht extends JFrame {
 		txtWohnort.setColumns(10);
 
 		txtZielort = new JTextField();
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, txtWohnort, -10, SpringLayout.NORTH, txtZielort);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtZielort, 218, SpringLayout.EAST, label_Zielort);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtZielort, 0, SpringLayout.EAST, txtFertigmachenMinuten);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, txtZielort, 275, SpringLayout.NORTH,
 				panelWeckerErstellen);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_Zielort, 3, SpringLayout.NORTH, txtZielort);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, txtWohnort, -10, SpringLayout.NORTH, txtZielort);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtZielort, -40, SpringLayout.EAST,
-				panelWeckerErstellen);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtWohnort, 0, SpringLayout.EAST, txtZielort);
 		txtZielort.setForeground(new Color(192, 192, 192));
 		txtZielort.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtZielort.setText("Ziel-Adresse");
@@ -263,7 +264,7 @@ public class Hauptansicht extends JFrame {
 		txtFertigmachenStunden = new JTextField();
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtFertigmachenStunden, 261, SpringLayout.WEST,
 				panelWeckerErstellen);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFertigmachenStunden, -6, SpringLayout.WEST,
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFertigmachenStunden, -6, SpringLayout.EAST,
 				label_zwischen);
 		txtFertigmachenStunden.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtFertigmachenStunden.setForeground(new Color(192, 192, 192));
@@ -350,21 +351,18 @@ public class Hauptansicht extends JFrame {
 		panelWeckerErstellen.add(txtAnkunftStunden);
 
 		JLabel lblNewLabel_2 = new JLabel("Fahrzeit:");
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, lblNewLabel_2, 0, SpringLayout.WEST, btn_Berechnen);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 28, SpringLayout.SOUTH, label_Fertigmachzeit);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, lblNewLabel_2, 0, SpringLayout.WEST, label_Ankunftszeit);
 		lblNewLabel_2.setFont(new Font("Arial", Font.PLAIN, 12));
 		panelWeckerErstellen.add(lblNewLabel_2);
 
 		txtFahrenStunden = new JTextField();
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, label_zwischen, -25, SpringLayout.NORTH,
-				txtFahrenStunden);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 3, SpringLayout.NORTH,
-				txtFahrenStunden);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFahrenStunden, -102, SpringLayout.EAST,
+				panelWeckerErstellen);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, txtFahrenStunden, 22, SpringLayout.SOUTH,
 				txtFertigmachenMinuten);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtFahrenStunden, 0, SpringLayout.WEST,
 				txtFertigmachenStunden);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFahrenStunden, -93, SpringLayout.EAST,
-				panelWeckerErstellen);
 		txtFahrenStunden.setText("0");
 		txtFahrenStunden.setForeground(Color.LIGHT_GRAY);
 		txtFahrenStunden.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -374,8 +372,7 @@ public class Hauptansicht extends JFrame {
 		txtFahrenMinuten = new JTextField();
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, txtFahrenMinuten, 22, SpringLayout.SOUTH,
 				txtFertigmachenMinuten);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtFahrenMinuten, 0, SpringLayout.WEST,
-				txtFertigmachenMinuten);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, txtFahrenMinuten, 0, SpringLayout.WEST, txtFertigmachenMinuten);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.EAST, txtFahrenMinuten, -23, SpringLayout.EAST,
 				panelWeckerErstellen);
 		txtFahrenMinuten.setText("30");
@@ -385,8 +382,9 @@ public class Hauptansicht extends JFrame {
 		panelWeckerErstellen.add(txtFahrenMinuten);
 
 		JLabel label_zwischen_2 = new JLabel(":");
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_zwischen_2, 25, SpringLayout.SOUTH,
-				label_zwischen);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, label_zwischen_2, 207, SpringLayout.NORTH,
+				panelWeckerErstellen);
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, label_zwischen, -25, SpringLayout.NORTH, label_zwischen_2);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, label_zwischen_2, 0, SpringLayout.WEST,
 				label_zwischen);
 		label_zwischen_2.setForeground(Color.BLACK);
@@ -405,11 +403,11 @@ public class Hauptansicht extends JFrame {
 		text_Name.setColumns(10);
 
 		JLabel lblFortbewegung = new JLabel("Fortbewegung");
+		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, lblFortbewegung, 0, SpringLayout.WEST,
+				label_Ankunftszeit);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.SOUTH, lblFortbewegung, -251, SpringLayout.SOUTH,
 				panelWeckerErstellen);
 		sl_panelWeckerErstellen.putConstraint(SpringLayout.NORTH, rdbtnopnv, 12, SpringLayout.SOUTH, lblFortbewegung);
-		sl_panelWeckerErstellen.putConstraint(SpringLayout.WEST, lblFortbewegung, 9, SpringLayout.WEST,
-				panelWeckerErstellen);
 		lblFortbewegung.setForeground(new Color(128, 128, 128));
 		lblFortbewegung.setFont(new Font("Arial", Font.PLAIN, 14));
 		panelWeckerErstellen.add(lblFortbewegung);
