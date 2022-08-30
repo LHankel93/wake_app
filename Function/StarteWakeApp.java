@@ -1,6 +1,6 @@
 import java.awt.EventQueue;
-import Controller.CSVHandler;
-import Controller.Calculator;
+import controller.CSVHandler;
+import controller.Calculator;
 import view.Hauptansicht;
 
 /**

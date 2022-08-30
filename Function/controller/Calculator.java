@@ -1,9 +1,5 @@
-package Controller;
-import java.time.*;
-
-import javax.swing.JDialog;
+package controller;
 import javax.swing.JOptionPane;
-
 import view.Hauptansicht;
 /**
  * 

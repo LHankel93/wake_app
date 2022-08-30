@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import Controller.*;
+import controller.*;
 import model.Wecker;
 
 /**
