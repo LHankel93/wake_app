@@ -25,9 +25,9 @@ import controller.*;
 import model.Wecker;
 
 /**
- * Diese Klasse ist zum erzeugen der GUIs da
+ * Diese Klasse ist zum Erzeugen der GUIs da.
  * 
- * @author Maria siegmann
+ * @author Maria Siegmann
  * @version v0.0.1
  * 
  *
@@ -158,6 +158,7 @@ public class Hauptansicht extends JFrame {
 
 	/**
 	 * Konstruktor um den für den JFrame.
+	 * @param csv Die CSV Datei, welche die gespeicherten Wecker enthält.
 	 */
 	public Hauptansicht(CSVHandler csv) {
 		// Wecker Rechner initialisieren und deklarieren.

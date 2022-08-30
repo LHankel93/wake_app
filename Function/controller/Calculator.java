@@ -24,7 +24,7 @@ public class Calculator {
 		
 	}
 	/**
-	 * Fuktion zum berechnen der Startzeit
+	 * Funktion zum Berechnen der Startzeit
 	 */
 	public void Rechnung() {
 		

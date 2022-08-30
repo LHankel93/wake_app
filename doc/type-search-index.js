@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"Controller","l":"CSVHandler"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"controller","l":"Calculator"},{"p":"controller","l":"CSVHandler"},{"p":"view","l":"Hauptansicht"},{"p":"<Unnamed>","l":"StarteWakeApp"},{"p":"model","l":"Wecker"}];updateSearchResults();

@@ -7,15 +7,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import model.Wecker;
 
 /**
- * Eine Klasse, welche für die Verwaltung von der lokalen CSV Datei zum lesen
- * und schreiben verantwortlich ist.
+ * Eine Klasse, welche für die Verwaltung von der lokalen CSV Datei für das Lesen
+ * und Schreiben verantwortlich ist.
  * 
  * @author Lorenz Hankel, Thomas Schädler
- * @version v0.0.2 03.06.2022
+ * @version v0.0.3 30.08.2022
  *
  */
 public class CSVHandler {
